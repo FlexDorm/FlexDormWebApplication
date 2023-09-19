@@ -10,6 +10,9 @@ import { MatPaginatorModule} from "@angular/material/paginator";
 import { MatFormFieldModule} from "@angular/material/form-field";
 import { MatChipsModule} from "@angular/material/chips";
 import { MatGridListModule} from "@angular/material/grid-list";
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+
 
 @NgModule({
   imports: [
@@ -23,7 +26,9 @@ import { MatGridListModule} from "@angular/material/grid-list";
     MatPaginatorModule,
     MatFormFieldModule,
     MatChipsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSidenavModule,
+    MatListModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -36,7 +41,9 @@ import { MatGridListModule} from "@angular/material/grid-list";
     MatPaginatorModule,
     MatFormFieldModule,
     MatChipsModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSidenavModule,
+    MatListModule
   ],
 
 })

@@ -1,0 +1,36 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <button (click)="toggleNavList()">
+      <mat-icon>{{ isNavListHidden ? 'menu' : 'menu' }}</mat-icon>
+    </button>
+    <span class="title">FLEXIDORM</span>
+    <mat-icon class="profile-icon">account_circle</mat-icon>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-nav-list class="custom-nav-list" [ngClass]="{ 'hidden': isNavListHidden }">
+  <div class="nav-container">
+    <div class="nav-item">
+      <mat-icon class="colorIcon">home</mat-icon>
+      <a mat-list-item routerLink="/opcion1">Buscar Habitaciones</a>
+    </div>
+    <div class="nav-item">
+      <mat-icon class="colorIcon">star_rate</mat-icon>
+    <a mat-list-item routerLink="/opcion2">Favoritos</a>
+    </div>
+    <div class="nav-item">
+      <mat-icon class="colorIcon">calendar_month</mat-icon>
+    <a mat-list-item routerLink="/opcion3">Mis Reservas</a>
+  </div>
+  <div class="nav-item">
+    <mat-icon class="colorIcon">perm_identity</mat-icon>
+    <a mat-list-item routerLink="/opcion4">Mis Perfil</a>
+  </div>
+  <div class="nav-item">
+    <mat-icon class="colorIcon">wallet</mat-icon>
+    <a mat-list-item routerLink="/opcion5">Mis Movimientos</a>
+  </div>
+  </div>
+</mat-nav-list>
+
+
