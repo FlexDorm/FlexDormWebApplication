@@ -79,3 +79,7 @@ color: #333;
   background-color: #c498ec !important;
   border-left     : 8px solid #6e29af;
 }
+
+.drawer-class{
+  height: 87vh;
+}
