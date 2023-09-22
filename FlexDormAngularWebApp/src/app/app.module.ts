@@ -9,12 +9,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from 'src/shared/material.module';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { PostListComponent } from './components/post-list/post-list.component';
+import { FavoriteListComponent } from './components/favorite-list/favorite-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FooterComponent,
-    HeaderComponent
+    HeaderComponent,
+    PostListComponent,
+    FavoriteListComponent
   ],
   imports: [
     BrowserModule,
