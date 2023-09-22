@@ -12,23 +12,23 @@
   <mat-drawer #drawer opened="true" mode="side" position="start">
     <mat-nav-list class="custom-nav-list">
       <div class="nav-container">
-        <div class="nav-item">
+        <div class="nav-item" routerLinkActive="is-active">
           <mat-icon class="colorIcon">home</mat-icon>
-          <a mat-list-item routerLink="/opcion1">Buscar Habitaciones</a>
+          <a mat-list-item routerLink="/posts" >Buscar Habitaciones</a>
         </div>
-        <div class="nav-item">
+        <div class="nav-item" routerLinkActive="is-active">
           <mat-icon class="colorIcon">star_rate</mat-icon>
-        <a mat-list-item routerLink="/opcion2">Favoritos</a>
+        <a mat-list-item routerLink="/favorites">Favoritos</a>
         </div>
-        <div class="nav-item">
+        <div class="nav-item" routerLinkActive="is-active">
           <mat-icon class="colorIcon">calendar_month</mat-icon>
         <a mat-list-item routerLink="/opcion3">Mis Reservas</a>
       </div>
-      <div class="nav-item">
+      <div class="nav-item" routerLinkActive="is-active">
         <mat-icon class="colorIcon">perm_identity</mat-icon>
         <a mat-list-item routerLink="/opcion4">Mis Perfil</a>
       </div>
-      <div class="nav-item">
+      <div class="nav-item" routerLinkActive="is-active">
         <mat-icon class="colorIcon">wallet</mat-icon>
         <a mat-list-item routerLink="/opcion5">Mis Movimientos</a>
       </div>
