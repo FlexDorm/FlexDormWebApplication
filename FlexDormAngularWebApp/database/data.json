@@ -1,0 +1,85 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "Habitación en San Miguel",
+      "photo": "https://source.unsplash.com/random/500X500",
+      "description": "Habitación para 1 persona",
+      "price": 7.0,
+      "address": "San Miguel",
+      "nearUniversities": ["UPC", "PUCP", "UNMSM"]
+    },
+    {
+      "id": 2,
+      "title": "Habitación en Miraflores",
+      "photo": "https://source.unsplash.com/random/500X500",
+      "description": "Habitación para 2 personas",
+      "price": 12.5,
+      "address": "Miraflores",
+      "nearUniversities": ["UPC", "PUCP", "UNMSM"]
+    },
+    {
+      "id": 3,
+      "title": "Habitación en Barranco",
+      "photo": "https://source.unsplash.com/random/500X500",
+      "description": "Habitación para 1 persona",
+      "price": 9.0,
+      "address": "Barranco",
+      "nearUniversities": ["UPC", "PUCP", "UNMSM"]
+    },
+    {
+      "id": 4,
+      "title": "Departamento en Surco",
+      "photo": "https://source.unsplash.com/random/500X500",
+      "description": "Departamento amoblado",
+      "price": 20.0,
+      "address": "Surco",
+      "nearUniversities": ["UPC", "PUCP", "UNMSM"]
+    },
+    {
+      "id": 5,
+      "title": "Habitación en La Molina",
+      "photo": "https://source.unsplash.com/random/500X500",
+      "description": "Habitación para 2 personas",
+      "price": 13.5,
+      "address": "La Molina",
+      "nearUniversities": ["UPC", "PUCP", "UNMSM"]
+    },
+    {
+      "id": 6,
+      "title": "Casa en San Isidro",
+      "photo": "https://source.unsplash.com/random/500X500",
+      "description": "Casa grande con jardín",
+      "price": 25.0,
+      "address": "San Isidro",
+      "nearUniversities": ["UPC", "PUCP", "UNMSM"]
+    },
+    {
+      "id": 7,
+      "title": "Departamento en Jesus María",
+      "photo": "https://source.unsplash.com/random/500X500",
+      "description": "Departamento con vista panorámica",
+      "price": 18.0,
+      "address": "Jesus María",
+      "nearUniversities": ["UPC", "PUCP", "UNMSM"]
+    },
+    {
+      "id": 8,
+      "title": "Habitación en Lince",
+      "photo": "https://source.unsplash.com/random/500X500",
+      "description": "Habitación para 1 persona",
+      "price": 10.0,
+      "address": "Lince",
+      "nearUniversities": ["UPC", "PUCP", "UNMSM"]
+    },
+    {
+      "id": 9,
+      "title": "Casa en Magdalena",
+      "photo": "https://source.unsplash.com/random/500X500",
+      "description": "Casa con piscina",
+      "price": 30.0,
+      "address": "Magdalena",
+      "nearUniversities": ["UPC", "PUCP", "UNMSM"]
+    }
+  ]
+}
