@@ -1,36 +1,44 @@
-<mat-toolbar>
+
+
+<mat-toolbar color="primary" class="mat-elevation-z8">
   <mat-toolbar-row>
-    <button (click)="toggleNavList()">
-      <mat-icon>{{ isNavListHidden ? 'menu' : 'menu' }}</mat-icon>
+    <button (click)="drawer.toggle()" mat-icon-button>
+      <mat-icon>menu</mat-icon>
     </button>
     <span class="title">FLEXIDORM</span>
     <mat-icon class="profile-icon">account_circle</mat-icon>
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-nav-list class="custom-nav-list" [ngClass]="{ 'hidden': isNavListHidden }">
-  <div class="nav-container">
-    <div class="nav-item">
-      <mat-icon class="colorIcon">home</mat-icon>
-      <a mat-list-item routerLink="/opcion1">Buscar Habitaciones</a>
+<mat-drawer-container autosize>
+  <mat-drawer #drawer opened="true" mode="side" position="start">
+    <mat-nav-list>
+      <mat-list-item routerLink="/posts" routerLinkActive="is-active">
+        <a mat-button> <mat-icon>home</mat-icon> Buscar Habitaciones </a>
+      </mat-list-item>
+      <mat-list-item routerLink="/favorites" routerLinkActive="is-active">
+        <a mat-button> <mat-icon>star_rate</mat-icon> Favoritos </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a mat-button routerLink="/bookings" routerLinkActive="is-active">
+          <mat-icon>calendar_month</mat-icon> Mis Reservas
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a mat-button routerLink="/profile" routerLinkActive="is-active">
+          <mat-icon>perm_identity</mat-icon> Mi Perfil
+        </a>
+      </mat-list-item>
+      <mat-list-item>
+        <a mat-button routerLink="/movements" routerLinkActive="is-active">
+          <mat-icon>wallet</mat-icon> Mis Movimientos
+        </a>
+      </mat-list-item>
+    </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <div style="min-height: 600px">
+      <router-outlet />
     </div>
-    <div class="nav-item">
-      <mat-icon class="colorIcon">star_rate</mat-icon>
-    <a mat-list-item routerLink="/opcion2">Favoritos</a>
-    </div>
-    <div class="nav-item">
-      <mat-icon class="colorIcon">calendar_month</mat-icon>
-    <a mat-list-item routerLink="/opcion3">Mis Reservas</a>
-  </div>
-  <div class="nav-item">
-    <mat-icon class="colorIcon">perm_identity</mat-icon>
-    <a mat-list-item routerLink="/opcion4">Mis Perfil</a>
-  </div>
-  <div class="nav-item">
-    <mat-icon class="colorIcon">wallet</mat-icon>
-    <a mat-list-item routerLink="/opcion5">Mis Movimientos</a>
-  </div>
-  </div>
-</mat-nav-list>
-
-
+  </mat-drawer-content>
+</mat-drawer-container>

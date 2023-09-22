@@ -74,3 +74,8 @@ color: #333;
 .colorIcon{
   color: #525252;
 }
+
+.is-active {
+  background-color: #c498ec !important;
+  border-left     : 8px solid #6e29af;
+}
