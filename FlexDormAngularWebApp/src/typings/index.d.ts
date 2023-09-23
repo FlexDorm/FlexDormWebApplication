@@ -1,4 +1,4 @@
-export interface RoomPost {
+export interface RoomData {
   id: number;
   title: string;
   photo: string;

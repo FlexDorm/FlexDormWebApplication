@@ -28,8 +28,8 @@ img {
 }
 
 .button-purple {
-  background-color: #a070ce;
-  color: white;
+  background-color: #a070ce !important;
+  color: white !important;
 }
 
 .outlined-chip {
@@ -42,4 +42,11 @@ mat-chip {
 
 .circle {
   font-size: large;
+}
+
+.button-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center; /* center horizontally */
+  align-items: center; /* center vertically */
 }

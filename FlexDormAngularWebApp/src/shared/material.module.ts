@@ -13,6 +13,18 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {
+  NgxMatDatetimePickerModule,
+  NgxMatTimepickerModule,
+  NgxMatNativeDateModule
+} from '@angular-material-components/datetime-picker';
+import { NgxMatMomentModule } from '@angular-material-components/moment-adapter';
+import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -30,6 +42,16 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSidenavModule,
     MatListModule,
     MatMenuModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
+    NgxMatMomentModule,
+    NgxMatFileInputModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -46,6 +68,16 @@ import { MatMenuModule } from '@angular/material/menu';
     MatSidenavModule,
     MatListModule,
     MatMenuModule,
+    MatDialogModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatTooltipModule,
+    MatSnackBarModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
+    NgxMatMomentModule,
+    NgxMatFileInputModule
   ],
 })
 export class MaterialModule {}
