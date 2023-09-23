@@ -1,0 +1,65 @@
+<div class="container">
+    <mat-card> 
+        <mat-card-content>
+            <h1 style="text-align: center;">Hola, Usuario</h1>
+            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" 
+            alt="Profile picture" class="profile-picture">
+
+            <div >
+                <form *ngIf="edit" class="content">
+                    <div class="item">
+                        <mat-form-field>
+                            <mat-label>Nombre</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>        
+                    <div class="item">
+                        <mat-form-field>
+                            <mat-label>Teléfono</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>                  
+                    <div class="item">
+                        <mat-form-field>
+                            <mat-label>Email</mat-label>
+                            <input matInput>
+                        </mat-form-field>
+                    </div>                       
+                    <div class="item">
+                        <mat-form-field>
+                            <mat-label>Dirección</mat-label>
+                         <input matInput>
+                        </mat-form-field>
+                    </div>                   
+                    <div class="item">
+                        <button mat-raised-button class="button-purple" type="submit">Guardar</button>
+                        <button mat-raised-button (click)="close()">Cancelar</button>
+                    </div>  
+                </form>
+
+                <div *ngIf="!edit" class="content">
+                    <div class="item">
+                        <label for="name">Nombre:</label> <br>
+                        <p>Nombre</p>
+                    </div>
+                    <div class="item">
+                        <label for="phone">Teléfono:</label> <br>
+                        <p>Teléfono</p>
+                    </div>
+                    <div class="item">
+                        <label for="email">Email:</label> <br>
+                        <p>Email</p>
+                    </div>
+                    <div class="item">
+                        <label for="address">Dirección:</label> <br>
+                        <p>Dirección</p>
+                    </div>
+                </div>            
+            </div>
+
+            
+        </mat-card-content>
+        <mat-divider></mat-divider>
+        <button mat-raised-button class="button-purple" *ngIf="!edit" (click)="editar()">Editar</button>
+    </mat-card>
+</div>
