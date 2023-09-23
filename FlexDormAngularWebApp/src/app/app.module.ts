@@ -13,6 +13,7 @@ import { RoomListComponent } from './components/room-list/room-list.component';
 import { FavoriteListComponent } from './components/favorite-list/favorite-list.component';
 import { RoomDialogComponent } from './components/room-dialog/room-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HeaderComponent,
     RoomListComponent,
     FavoriteListComponent,
-    RoomDialogComponent
+    RoomDialogComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
