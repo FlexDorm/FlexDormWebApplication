@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { Subject, throwError, catchError } from 'rxjs';
-import { RoomPost } from 'src/typings';
+import { Subject, throwError, catchError, tap } from 'rxjs';
+import { RoomData } from 'src/typings';
 import { environment } from 'src/environments/environment.prod';
 
 @Injectable({
@@ -14,35 +14,36 @@ export class RoomsService {
    * Metodo que se encarga de manejar los errores
    */
   handlerError(error: HttpErrorResponse) {
-    if (error.error instanceof ErrorEvent) {
-      console.log(`An error ocurred ${error.status}, body was: ${error.error}`);
-    } else {
-      console.log(
-        `Backend returned code ${error.status}, body was: ${error.error}`
-      );
-    }
-
-    return throwError(
-      () =>
-        new Error('Something happened with request, please try again later.')
-    );
+    return throwError(() => error);
   }
 
-  //observable que notificará la creación de posts
-  private postCreatedSubject = new Subject<void>();
-  //método para emitir una notificación de creación de un post
-  private onPostCreated() {
-    this.postCreatedSubject.next();
+  //observable que notificará la creación de habitaciones
+  private roomCreatedSubject = new Subject<void>();
+  //método para emitir una notificación de creación de un habitacion
+  private onRoomCreated() {
+    this.roomCreatedSubject.next();
   }
-  //observable que los componentes pueden suscribirse para detectar la creación de un post
-  postCreated$ = this.postCreatedSubject.asObservable();
+  //observable que los componentes pueden suscribirse para detectar la creación de una habitacion
+  roomCreated$ = this.roomCreatedSubject.asObservable();
 
   /**
    * Obtiene la lista de habitaciones (GET)
    */
   getRoomsList() {
     return this.http
-      .get<RoomPost[]>(`${environment.baseURL}/posts`)
+      .get<RoomData[]>(`${environment.baseURL}/rooms`)
       .pipe(catchError(this.handlerError));
+  }
+
+  /**
+   * Registra una nueva habitación (POST)
+   * @param pelicula Datos de la habitación a registrar
+   */
+  registerRoom(roomData: RoomData) {
+    console.log('nuevo room', roomData)
+    return this.http.post(`${environment.baseURL}/rooms`, roomData).pipe(
+      catchError(this.handlerError),
+      tap(() => this.onRoomCreated()) //recupera la lista actualizada de habitaciones
+    );
   }
 }
