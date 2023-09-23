@@ -54,15 +54,21 @@ export class RoomDialogComponent {
    * Registra una nueva habitación
    */
   registerRoom() {
-    this.roomsService.registerRoom({ id: 0, ...this.form.value }).subscribe({
-      next: (response) => {
-        this.dialogRef.close();
-        this.openSnackBar('Habitación registrada', 'Ok');
-      },
-      error: (error) => {
-        this.openSnackBar('Error al registrar habitación', 'Ok');
-      },
-    });
+    this.roomsService
+      .registerRoom({
+        id: 0,
+        photo: 'https://source.unsplash.com/random/500X500?rooms',
+        ...this.form.value,
+      })
+      .subscribe({
+        next: (response) => {
+          this.dialogRef.close();
+          this.openSnackBar('Habitación registrada', 'Ok');
+        },
+        error: (error) => {
+          this.openSnackBar('Error al registrar habitación', 'Ok');
+        },
+      });
   }
 
   /**
