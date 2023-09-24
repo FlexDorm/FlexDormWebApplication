@@ -27,9 +27,23 @@
       <div class="form-group">
         <input type="text" placeholder="Ingresa tu direccón" name="address" id="address">
       </div>
-      <div class="form-group">
+      <div class="form-group2">
+        <input matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento" readonly>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        </div>
+      <div class="form-group" *ngIf="arrendar" id="crearArrendar">
         <button type="submit">Crear Cuenta</button>
       </div>
+      <div class="form-group" *ngIf="student" id="crearStudent">
+        <button type="submit">Crear Cuenta</button>
+      </div>
+      <div>
+        ¿Tienes una cuenta?
+        </div>
+        <div>
+          <a routerLink="/login">Inicia sesión</a>
+          </div>
     </form>
   </div>
 </div>

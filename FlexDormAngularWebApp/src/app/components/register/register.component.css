@@ -17,12 +17,13 @@ h2{
 .login-card {
   background-color: rgb(255, 255, 255);
   padding: 20px;
+  margin-bottom: 100px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
   width: 80%; /* Ajusta el ancho según tus necesidades */
   height: 80%; /* Ajusta el alto según tus necesidades */
   max-width: 400px; /* Ajusta el ancho máximo según tus necesidades */
-  max-height: 600px; /* Ajusta la altura máxima según tus necesidades */
+  max-height: 680px; /* Ajusta la altura máxima según tus necesidades */
   text-align: center;
   overflow: auto; /* Añade desplazamiento si el contenido es demasiado largo */
 }
@@ -63,7 +64,7 @@ h2{
 }
 
 a{
-  color:#ffffff;
+  color:#670abe;
 }
 
 .container {
@@ -89,3 +90,31 @@ a{
 .boton.clicked {
   background-color: #670abe;
 }
+
+
+.form-group2 {
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.form-group2 input {
+  width: 58%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-group2 button {
+  width: 72%;
+  padding: 10px;
+  background-color: #670abe; /* Color de fondo del botón */
+  color: #ffffff; /* Color de texto del botón */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-group2 button:hover {
+  background-color: #670abe; /* Cambia el color de fondo en el hover */
+}
+
