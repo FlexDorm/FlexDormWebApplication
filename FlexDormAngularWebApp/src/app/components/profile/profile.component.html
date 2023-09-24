@@ -1,34 +1,34 @@
 <div class="container">
     <mat-card> 
         <mat-card-content>
-            <h1 style="text-align: center;">Hola, Usuario</h1>
+            <h1 style="text-align: center;">Hola, {{accountData.name}}</h1>
             <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2080&q=80" 
             alt="Profile picture" class="profile-picture">
 
             <div >
-                <form *ngIf="edit" class="content">
+                <form *ngIf="edit" class="content" (ngSubmit)="updateAccountData()">
                     <div class="item">
                         <mat-form-field>
                             <mat-label>Nombre</mat-label>
-                            <input matInput>
+                            <input matInput [(ngModel)]="accountData.username" name="username">
                         </mat-form-field>
                     </div>        
                     <div class="item">
                         <mat-form-field>
                             <mat-label>Teléfono</mat-label>
-                            <input matInput>
+                            <input matInput [(ngModel)]="accountData.phone" name="phone">
                         </mat-form-field>
                     </div>                  
                     <div class="item">
                         <mat-form-field>
                             <mat-label>Email</mat-label>
-                            <input matInput>
+                            <input matInput [(ngModel)]="accountData.email" name="email">
                         </mat-form-field>
                     </div>                       
                     <div class="item">
                         <mat-form-field>
                             <mat-label>Dirección</mat-label>
-                         <input matInput>
+                         <input matInput [(ngModel)]="accountData.address" name="address">
                         </mat-form-field>
                     </div>                   
                     <div class="item">
@@ -39,20 +39,20 @@
 
                 <div *ngIf="!edit" class="content">
                     <div class="item">
-                        <label for="name">Nombre:</label> <br>
-                        <p>Nombre</p>
+                        <p>Nombre:</p>
+                        <p>{{ accountData.username }}</p>
                     </div>
                     <div class="item">
-                        <label for="phone">Teléfono:</label> <br>
-                        <p>Teléfono</p>
+                        <p>Teléfono:</p>
+                        <p>{{ accountData.phone }}</p>
                     </div>
                     <div class="item">
-                        <label for="email">Email:</label> <br>
-                        <p>Email</p>
+                        <p>Email:</p>
+                        <p>{{ accountData.email }}</p>
                     </div>
                     <div class="item">
-                        <label for="address">Dirección:</label> <br>
-                        <p>Dirección</p>
+                        <p>Dirección:</p>
+                        <p>{{ accountData.address }}</p>
                     </div>
                 </div>            
             </div>
