@@ -3,7 +3,7 @@
     {
       "id": 1,
       "title": "Habitación en San Miguel",
-      "photo": "https://source.unsplash.com/random/500X500",
+      "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Habitación para 1 persona",
       "price": 7,
       "address": "San Miguel",
@@ -16,7 +16,7 @@
     {
       "id": 2,
       "title": "Habitación en Miraflores",
-      "photo": "https://source.unsplash.com/random/500X500",
+      "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Habitación para 2 personas",
       "price": 12.5,
       "address": "Miraflores",
@@ -29,7 +29,7 @@
     {
       "id": 3,
       "title": "Habitación en Barranco",
-      "photo": "https://source.unsplash.com/random/500X500",
+      "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Habitación para 1 persona",
       "price": 9,
       "address": "Barranco",
@@ -42,7 +42,7 @@
     {
       "id": 4,
       "title": "Departamento en Surco",
-      "photo": "https://source.unsplash.com/random/500X500",
+      "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Departamento amoblado",
       "price": 20,
       "address": "Surco",
@@ -55,7 +55,7 @@
     {
       "id": 5,
       "title": "Habitación en La Molina",
-      "photo": "https://source.unsplash.com/random/500X500",
+      "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Habitación para 2 personas",
       "price": 13.5,
       "address": "La Molina",
@@ -68,7 +68,7 @@
     {
       "id": 6,
       "title": "Casa en San Isidro",
-      "photo": "https://source.unsplash.com/random/500X500",
+      "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Casa grande con jardín",
       "price": 25,
       "address": "San Isidro",
@@ -81,7 +81,7 @@
     {
       "id": 7,
       "title": "Departamento en Jesus María",
-      "photo": "https://source.unsplash.com/random/500X500",
+      "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Departamento con vista panorámica",
       "price": 18,
       "address": "Jesus María",
@@ -94,7 +94,7 @@
     {
       "id": 8,
       "title": "Habitación en Lince",
-      "photo": "https://source.unsplash.com/random/500X500",
+      "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Habitación para 1 persona",
       "price": 10,
       "address": "Lince",
@@ -107,7 +107,7 @@
     {
       "id": 9,
       "title": "Casa en Magdalena",
-      "photo": "https://source.unsplash.com/random/500X500",
+      "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Casa con piscina",
       "price": 30,
       "address": "Magdalena",
@@ -139,12 +139,17 @@
       ]
     }
   ],
-  "account": {
-    "name": "Juan",
-    "lastname": "Perez",
-    "username": "juanp13",
-    "phone": "999888765",
-    "email": "juanp13@gmail.com",
-    "address": "Av la Marina 123"
-  }
+  "account": [
+    {
+      "id": "1",
+      "name": "Juan",
+      "lastname": "Perez",
+      "username": "juanp13",
+      "phone": "999888765",
+      "email": "samm85299@gmail.com",
+      "address": "Av la Marina 123",
+      "password":"12345678"
+    }
+  ]
+
 }

@@ -1,6 +1,6 @@
 <mat-toolbar color="primary" class="mat-elevation-z8">
   <mat-toolbar-row>
-    <button (click)="drawer.toggle()" mat-icon-button>
+    <button (click)="drawer.toggle()" mat-icon-button *ngIf="!isLoginPage">
       <mat-icon>menu</mat-icon>
     </button>
     <span class="title">FLEXIDORM</span>
@@ -8,8 +8,8 @@
   </mat-toolbar-row>
 </mat-toolbar>
 
-<mat-drawer-container class="drawer-class">
-  <mat-drawer #drawer opened="true" mode="side" position="start">
+<mat-drawer-container class="drawer-class" >
+  <mat-drawer #drawer opened="false" mode="side" position="start">
     <mat-nav-list class="custom-nav-list">
       <div class="nav-container">
         <div class="nav-item" routerLinkActive="is-active">
@@ -31,6 +31,10 @@
       <div class="nav-item" routerLinkActive="is-active">
         <mat-icon class="colorIcon">wallet</mat-icon>
         <a mat-list-item routerLink="/opcion5">Mis Movimientos</a>
+      </div>
+      <div class="nav-item" routerLinkActive="is-active" (click)="drawer.toggle()" (click)="logout()">
+        <mat-icon class="colorIcon">power_settings_new</mat-icon>
+        <a mat-list-item  routerLink="/login">Log Out</a>
       </div>
       </div>
     </mat-nav-list>
