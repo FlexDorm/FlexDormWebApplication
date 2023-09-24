@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router,NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -11,4 +12,18 @@ export class HeaderComponent {
   toggleNavList() {
     this.isNavListHidden = !this.isNavListHidden;
   }
+
+
+  isLoginPage: boolean = false;
+
+  constructor(private router: Router) {
+    // Suscribirse a eventos de cambio de ruta
+    router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        // Verificar si estamos en la página de 'login'
+        this.isLoginPage = event.url === '/login';
+      }
+    });
+  }
+
 }
