@@ -140,3 +140,13 @@
     }
   ]
 }
+  ],
+  "account": {
+    "name": "Juan",
+    "lastname": "Perez",
+    "username": "juanp13",
+    "phone": "999888765",
+    "email": "juanp13@gmail.com",
+    "address": "Av la Marina 123"
+  }
+}

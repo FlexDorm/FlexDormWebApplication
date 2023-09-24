@@ -7,3 +7,12 @@ export interface RoomData {
   address: string;
   nearUniversities: string[];
 }
+
+export interface AccountData {
+  name:string;
+  lastname:string
+  username: string;
+  phone: string;
+  email: string;
+  address: string;
+}
