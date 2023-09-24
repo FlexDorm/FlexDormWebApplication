@@ -24,7 +24,7 @@ import { LoginComponent } from './components/login/login.component';
     RoomListComponent,
     FavoriteListComponent,
     RoomDialogComponent,
-    LoginComponent
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
