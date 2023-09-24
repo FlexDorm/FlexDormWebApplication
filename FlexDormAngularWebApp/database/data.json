@@ -148,7 +148,8 @@
       "phone": "999888765",
       "email": "samm85299@gmail.com",
       "address": "Av la Marina 123",
-      "password":"12345678"
+      "password":"12345678",
+      "type":"student"
     }
   ]
 

@@ -1,0 +1,35 @@
+<div class="background-image">
+  <div class="login-card">
+    <form >
+      <h2><a style="color: black;">Bienvenido a </a><a style="color: rgb(113, 44, 204);">FlexiDorm</a></h2>
+      <div >
+        <button  class="boton" id="studentboton" (click)="studentfalse()">Soy estudiante</button>
+        <button  class="boton" id="arrendarboton" (click)="arrendarfalse()">Soy Arrendador</button>
+      </div>
+      <div>
+        <h3 style="text-align:left; color:black; padding-left:40px;">Ingresa tus datos para empezar</h3>
+        </div>
+      <div class="form-group" *ngIf="student">
+        <input type="text" placeholder="Ingresa tu correo Institucional" name="email" id="email" >
+      </div>
+      <div class="form-group" *ngIf="arrendar">
+        <input type="text" placeholder="Ingresa tu correo Electronico" name="email" id="email2" >
+      </div>
+      <div class="form-group">
+        <input type="password" placeholder="Ingresa tu Nombre" name="name" id="name">
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Ingresa tu Apellido" name="lastname" id="lastname">
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Ingresa tu número Celular" name="phone" id="phone">
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Ingresa tu direccón" name="address" id="address">
+      </div>
+      <div class="form-group">
+        <button type="submit">Crear Cuenta</button>
+      </div>
+    </form>
+  </div>
+</div>
