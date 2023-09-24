@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router,NavigationEnd } from '@angular/router';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -16,7 +17,7 @@ export class HeaderComponent {
 
   isLoginPage: boolean = false;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private authService:AuthService) {
     // Suscribirse a eventos de cambio de ruta
     router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
@@ -24,6 +25,9 @@ export class HeaderComponent {
         this.isLoginPage = event.url === '/login';
       }
     });
+  }
+  logout(){
+    this.authService.logout();
   }
 
 }

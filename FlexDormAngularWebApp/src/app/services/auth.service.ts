@@ -12,7 +12,7 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Promise<boolean> {
-    const loginUrl = `http://localhost:3000/accounts?email=${email}&password=${password}`;
+    const loginUrl = `http://localhost:3000/account?email=${email}&password=${password}`;
 
     return this.http.get<Account[]>(loginUrl)
       .toPromise()
