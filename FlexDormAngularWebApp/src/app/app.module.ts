@@ -14,6 +14,7 @@ import { FavoriteListComponent } from './components/favorite-list/favorite-list.
 import { RoomDialogComponent } from './components/room-dialog/room-dialog.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProfileComponent } from './components/profile/profile.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
