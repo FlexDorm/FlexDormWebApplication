@@ -10,8 +10,9 @@ import { AccountData } from 'src/typings';
 export class ProfileComponent {
 
   edit = false;
-  constructor(private profileService: ProfileService) {}
   accountData: AccountData = {} as AccountData;
+
+  constructor(private profileService: ProfileService) {}
 
   editar(): void {
     this.edit = true;
@@ -22,11 +23,13 @@ export class ProfileComponent {
   }
 
   ngOnInit() {
-    this.getAccountData(); // Llamar al método para obtener los datos del perfil al cargar el componente
+    var userId = Number(localStorage.getItem('userId'));
+    console.log(userId);
+    this.getAccountData(userId); 
   }
 
-  getAccountData() {
-    this.profileService.getAccountData().subscribe(
+  getAccountData(id: number) {
+    this.profileService.getAccountData(id).subscribe(
       {
         next: (response:any) => {
           this.accountData = response;
