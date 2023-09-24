@@ -24,7 +24,6 @@ import { LoginComponent } from './components/login/login.component';
     RoomListComponent,
     FavoriteListComponent,
     RoomDialogComponent,
-    ProfileComponent,
     LoginComponent
   ],
   imports: [
