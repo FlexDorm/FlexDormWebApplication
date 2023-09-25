@@ -9,10 +9,13 @@ export interface RoomData {
 }
 
 export interface AccountData {
+  id: number;
   name:string;
   lastname:string
   username: string;
   phone: string;
   email: string;
   address: string;
+  password: string;
+  profilePicture: string;
 }

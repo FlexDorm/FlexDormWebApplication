@@ -4,7 +4,15 @@
       <mat-icon>menu</mat-icon>
     </button>
     <span class="title">FLEXIDORM</span>
-    <mat-icon class="profile-icon">account_circle</mat-icon>
+    <div class="user-container" *ngIf="!isLoginPage">
+      <div class="user-info"> 
+        <span class="fullname"> 
+          <b>{{userData.name}} {{userData.lastname}}</b> 
+          @{{userData.username}}
+        </span>
+      </div>
+      <img class="profile-icon" src={{userData.profilePicture}} alt="user avatar" >
+    </div>
   </mat-toolbar-row>
 </mat-toolbar>
 

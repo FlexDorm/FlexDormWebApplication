@@ -13,8 +13,8 @@ const routes: Routes = [
   {path:'register',component:RegisterComponent},
   { path:'favorites', component: FavoriteListComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: '', redirectTo: '/rooms', pathMatch: 'full' },
-  { path: '**', redirectTo: '/rooms', pathMatch: 'full' }, //?-> cualquier otra ruta que no este definida, me redirige al /home
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/login', pathMatch: 'full' }, //?-> cualquier otra ruta que no este definida, me redirige al /home
 ];
 
 @NgModule({
