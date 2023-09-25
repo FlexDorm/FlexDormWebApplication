@@ -1,4 +1,9 @@
 import { Component,Renderer2, ElementRef  } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/services/auth.service';
+import { Router } from '@angular/router';
+import { RoomDialogComponent } from '../room-dialog/room-dialog.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-register',
@@ -7,8 +12,19 @@ import { Component,Renderer2, ElementRef  } from '@angular/core';
 })
 export class RegisterComponent {
 
-  constructor(private renderer: Renderer2, private el: ElementRef) {}
-
+  registrationForm: FormGroup;
+  usuarioExit=false;
+  usuarioEmail=false;
+  constructor(private renderer: Renderer2, private el: ElementRef, private authService:AuthService,private formBuilder: FormBuilder, private router:Router,private _snackBar: MatSnackBar) {
+    this.registrationForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      name: ['', Validators.required],
+      lastname: ['', Validators.required],
+      phone: ['', Validators.required],
+      address: ['', Validators.required],
+      birthdate: ['', Validators.required],
+    });
+  }
   student = true;
   arrendar = false;
   ngOnInit(): void {
@@ -48,4 +64,53 @@ export class RegisterComponent {
     console.log('Fecha seleccionada:', this.selectedDate);
     // Aquí puedes realizar acciones adicionales con la fecha seleccionada
   }
+
+  onSubmit() {
+    console.log("llego sumbit")
+    console.log("Formulario válido:", this.registrationForm.valid);
+    console.log("Valores del formulario:", this.registrationForm.value);
+    if (this.registrationForm.valid) {
+      const userData = this.registrationForm.value;
+      switch(this.student)
+      {
+        case true:
+          userData.type='student'
+        break;
+        case false:
+          userData.type='arrender'
+        break;
+      }
+      this.authService.register(userData).subscribe(
+        (response) => {
+          console.log('Registro exitoso', response);
+          switch(response){
+            case 'correo existente':
+              this.openSnackBar('El correo que intentas registrar ya existe', 'Ok')
+              break;
+            case true:
+              this.openSnackBar('Usuario registrado Correctamente', 'Ok')
+              setTimeout(() => {
+                window.location.href = 'login';
+              }, 3000);
+              break;
+          }
+        },
+        (error) => {
+          console.error('Error en el registro', error);
+        }
+      );
+    } else {
+      this.openSnackBar('Debes llenar todos los campos del formulario', 'Ok')
+      console.log("invalido")
+    }
+  }
+
+    /**
+   * Abre la alerta de snackbar
+   * @param message Mensaje a mostrar
+   * @param action Acción
+   */
+    openSnackBar(message: string, action?: string) {
+      this._snackBar.open(message, action, { duration: 5_000 });
+    }
 }

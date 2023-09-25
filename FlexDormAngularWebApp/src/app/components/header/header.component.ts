@@ -23,6 +23,7 @@ export class HeaderComponent {
       if (event instanceof NavigationEnd) {
         // Verificar si estamos en la página de 'login'
         this.isLoginPage = event.url === '/login';
+        this.isLoginPage = event.url === '/register';
       }
     });
   }
