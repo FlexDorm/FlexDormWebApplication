@@ -4,7 +4,7 @@
   border-bottom: 1px solid #58585838;
 }
 
-.mat-toolbar-row span {
+.title {
   font-size: 24px;
   font-weight: bold;
 }
@@ -66,9 +66,37 @@ button mat-icon {
 .mat-icon {
   margin-right: 8px;
 }
+
+.user-container{
+  display: flex;
+  margin-left:auto;
+  color: black;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  font-size: small;
+  margin-right: 10px;
+  text-align: right;
+}
+
+.fullname {
+  font-weight:normal;
+}
+
+.username {
+  font-weight: lighter;
+  font-style: italic;
+  color: #3d3d3d; 
+}
+
 .profile-icon {
   margin-left: auto;
-color: #333;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  align-self: center;
 }
 
 .colorIcon{

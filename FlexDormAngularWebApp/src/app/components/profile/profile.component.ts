@@ -23,9 +23,7 @@ export class ProfileComponent {
   }
 
   ngOnInit() {
-    var userId = Number(localStorage.getItem('userId'));
-    console.log(userId);
-    this.getAccountData(userId); 
+    this.getAccountData(Number(localStorage.getItem('userId'))); 
   }
 
   getAccountData(id: number) {

@@ -20,7 +20,7 @@ export class LoginComponent {
       .then(success => {
         if (success) {
           // Redirigir al usuario después de iniciar sesión
-          this.router.navigate(['/dashboard']); // Cambia '/dashboard' por la ruta que desees
+          this.router.navigate(['/rooms']); // Cambia '/dashboard' por la ruta que desees
         } else {
           // Mostrar mensaje de error
           this.loginError = 'Credenciales inválidas. Por favor, inténtalo de nuevo.';
