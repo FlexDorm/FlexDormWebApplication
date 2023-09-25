@@ -25,6 +25,7 @@ import { NgxMatMomentModule } from '@angular-material-components/moment-adapter'
 import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   imports: [
@@ -51,7 +52,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
     NgxMatMomentModule,
-    NgxMatFileInputModule
+    NgxMatFileInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     BrowserAnimationsModule,
@@ -77,7 +80,9 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     NgxMatTimepickerModule,
     NgxMatNativeDateModule,
     NgxMatMomentModule,
-    NgxMatFileInputModule
+    NgxMatFileInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
 })
 export class MaterialModule {}

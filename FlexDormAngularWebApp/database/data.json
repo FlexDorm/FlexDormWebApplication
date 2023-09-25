@@ -122,6 +122,9 @@
       "title": "Nuevo",
       "description": "xd",
       "price": 2,
+      "status": "available",
+      "student": "",
+      "arrender": "",
       "nearUniversities": [
         "UPC",
         "PUCP"
@@ -132,10 +135,23 @@
       "title": "AAA",
       "description": "XD",
       "price": 333,
+      "status": "rented",
+      "student": "",
+      "arrender": "",
       "nearUniversities": [
         "UPC",
         "PUCP",
         "UTP"
+      ]
+    },
+    {
+      "id": 12,
+      "photo": "https://source.unsplash.com/random/500X500?rooms",
+      "title": "FINA HABITACION",
+      "description": "FINA HABITACION",
+      "price": 30,
+      "nearUniversities": [
+        "UPC"
       ]
     }
   ],
@@ -161,6 +177,48 @@
       "address": "Av la Marina 333",
       "password": "45678912",
       "profilePicture": "https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1361&q=80"
+      "type": "student",
+      "birthdate": "19/08/1999"
+    },
+    {
+      "email": "samm85299111@gmail.com",
+      "name": "12345678",
+      "lastname": "Montes Molina",
+      "phone": "+51924773421",
+      "address": "Av Universitaria 6107, Lima",
+      "birthdate": "2023-09-22T05:00:00.000Z",
+      "type": "student",
+      "id": "0-Xh2c_"
+    },
+    {
+      "email": "samm8529912121@gmail.com",
+      "name": "12345678",
+      "lastname": "Montes Molina",
+      "phone": "+51924773421",
+      "address": "Av Universitaria 6107, Lima",
+      "birthdate": "2023-09-15T05:00:00.000Z",
+      "type": "student",
+      "id": "qobJPFh"
+    },
+    {
+      "email": "samm85299222@gmail.com",
+      "name": "12345678",
+      "lastname": "Montes Molina",
+      "phone": "+51924773421",
+      "address": "Av Universitaria 6107, Lima",
+      "birthdate": "2023-09-30T05:00:00.000Z",
+      "type": "student",
+      "id": "NPaxKBA"
+    },
+    {
+      "email": "samm852991112@gmail.com",
+      "name": "12345678",
+      "lastname": "Montes Molina",
+      "phone": "+51924773421",
+      "address": "Av Universitaria 6107, Lima",
+      "birthdate": "2023-09-26T05:00:00.000Z",
+      "type": "student",
+      "id": "AhBc8jZ"
     }
   ]
 }

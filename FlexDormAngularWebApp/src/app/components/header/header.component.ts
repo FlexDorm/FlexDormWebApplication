@@ -26,6 +26,7 @@ export class HeaderComponent {
         // Verificar si estamos en la página de 'login'
         this.isLoginPage = event.url === '/login';
         this.getAccountData(Number(localStorage.getItem('userId'))); 
+        this.isLoginPage = event.url === '/register';
       }
     });
   }
