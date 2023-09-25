@@ -1,0 +1,51 @@
+<div *ngIf="roomData" class="container responsive-grid">
+    <mat-card class="full-card">
+      <mat-card-content class="content-container">
+        <div class="title-section">
+          <h1>{{ roomData.title }}</h1>
+          <h5>
+            {{ roomData.description }}
+            &nbsp;
+            <mat-icon class="mat-icon-color">payments</mat-icon>
+            &nbsp; S/ <span class="mat-icon-color">{{ roomData.price }}</span> / hora
+          </h5>
+        </div>
+  
+        <div class="container">
+          <div class="align-center">
+            <img mat-card-image [src]="roomData.photo" loading="lazy" width="400" height="300" />
+          </div>
+        
+          <div class="info-section">
+            <div class="item">
+              <mat-icon>event</mat-icon> {{ roomData.availability}}
+            </div>
+            <div class="item">
+              <mat-icon>schedule</mat-icon> {{ roomData.startTime }}
+            </div>
+            <div class="item">
+              <mat-icon>alarm</mat-icon> {{ roomData.endTime }}
+            </div>
+            <div class="item">
+              <mat-icon>email</mat-icon> {{ roomData.email }}
+            </div>
+            <div class="item">
+              <mat-icon>phone</mat-icon> {{ roomData.phone }}
+            </div>
+            <div class="item">
+              <mat-icon>info</mat-icon> {{ roomData.shortDescription }}
+            </div>
+          </div>
+        </div>
+      </mat-card-content>
+      <br />
+      <br />
+      <mat-card-actions class="action-container">
+        <form *ngIf="!return" class="content">
+          <!-- Aquí puedes agregar otros elementos relacionados con la acción -->
+          <button mat-raised-button class="button-purple" type="submit">Reservar</button>
+          <button mat-raised-button class="button-purple" routerLink="/rooms">Volver</button>
+        </form>
+      </mat-card-actions>
+    </mat-card>
+  </div>

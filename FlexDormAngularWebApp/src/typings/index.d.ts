@@ -6,8 +6,13 @@ export interface RoomData {
   price: number;
   address: string;
   nearUniversities: string[];
+  availability: string;
+  startTime: string;
+  endTime: string;
+  email: string;
+  phone: string;
+  shortDescription: string;
 }
-
 export interface AccountData {
   id: number;
   name:string;
