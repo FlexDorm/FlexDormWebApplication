@@ -10,11 +10,11 @@ import { catchError, map, switchMap } from 'rxjs/operators';
 export class AuthService {
 
   private loggedIn = false;
-  private apiUrl = 'http://localhost:3000/account';
+  private apiUrl = 'https://json-server-chi-sage.vercel.app/account';
   constructor(private http: HttpClient) {}
 
   login(email: string, password: string): Promise<boolean> {
-    const loginUrl = `http://localhost:3000/account?email=${email}&password=${password}`;
+    const loginUrl = `https://json-server-chi-sage.vercel.app/account?email=${email}&password=${password}`;
 
     return this.http.get<Account[]>(loginUrl)
       .toPromise()

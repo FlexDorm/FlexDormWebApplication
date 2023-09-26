@@ -1,4 +1,4 @@
 export const environment = {
   development: true,
-  baseURL: 'http://localhost:3000'
+  baseURL: 'https://json-server-chi-sage.vercel.app'
 };
