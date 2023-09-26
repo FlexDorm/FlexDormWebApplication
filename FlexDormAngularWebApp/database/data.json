@@ -8,6 +8,7 @@
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Habitación para 1 persona",
       "price": 7,
+      "status":"free",
       "address": "San Miguel",
       "nearUniversities": [
         "UPC",
@@ -29,6 +30,7 @@
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Habitación para 2 personas",
       "price": 12.5,
+      "status":"free",
       "address": "Miraflores",
       "nearUniversities": [
         "UPC",
@@ -50,6 +52,7 @@
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Habitación para 1 persona",
       "price": 9,
+      "status":"rented",
       "address": "Barranco",
       "nearUniversities": [
         "UPC",
@@ -71,6 +74,7 @@
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Departamento amoblado",
       "price": 20,
+      "status":"free",
       "address": "Surco",
       "nearUniversities": [
         "UPC",
@@ -92,6 +96,7 @@
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Habitación para 2 personas",
       "price": 13.5,
+      "status":"free",
       "address": "La Molina",
       "nearUniversities": [
         "UPC",
@@ -113,6 +118,7 @@
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Casa grande con jardín",
       "price": 25,
+      "status":"free",
       "address": "San Isidro",
       "nearUniversities": [
         "UPC",
@@ -134,6 +140,7 @@
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Departamento con vista panorámica",
       "price": 18,
+      "status":"free",
       "address": "Jesus María",
       "nearUniversities": [
         "UPC",
@@ -155,6 +162,7 @@
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Habitación para 1 persona",
       "price": 10,
+      "status":"rented",
       "address": "Lince",
       "nearUniversities": [
         "UPC",
@@ -176,6 +184,7 @@
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Casa con piscina",
       "price": 30,
+      "status":"free",
       "address": "Magdalena",
       "nearUniversities": [
         "UPC",
@@ -196,6 +205,7 @@
       "title": "Nuevo",
       "description": "xd",
       "price": 2,
+      "status":"rented",
       "nearUniversities": [
         "UPC",
         "PUCP"
@@ -214,6 +224,7 @@
       "title": "AAA",
       "description": "XD",
       "price": 333,
+      "status":"free",
       "nearUniversities": [
         "UPC",
         "PUCP",
@@ -233,6 +244,7 @@
       "title": "Habitacion en Polvos Azules",
       "description": "Habitacion centro de lima",
       "price": 10,
+      "status":"rented",
       "nearUniversities": [
         "UTP"
       ]

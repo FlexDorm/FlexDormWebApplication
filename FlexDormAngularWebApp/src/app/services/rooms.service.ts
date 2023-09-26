@@ -35,10 +35,15 @@ export class RoomsService {
       .get<RoomData[]>(`${environment.baseURL}/rooms`)
       .pipe(catchError(this.handlerError));
   }
+  getRoomsListFree() {
+    return this.http
+      .get<RoomData[]>(`${environment.baseURL}/rooms?status=free`)
+      .pipe(catchError(this.handlerError));
+  }
 
   getRoomsByArrender(arrender: string): Observable<RoomData[]> {
     return this.http
-      .get<RoomData[]>(`${environment.baseURL}/rooms?arrender=${arrender}`)
+      .get<RoomData[]>(`${environment.baseURL}/rooms?arrender=${arrender}&status=free`)
       .pipe(catchError(this.handleError));
   }
 
