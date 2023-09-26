@@ -23,10 +23,10 @@ export class ProfileComponent {
   }
 
   ngOnInit() {
-    this.getAccountData(Number(localStorage.getItem('userId'))); 
+    this.getAccountData((localStorage.getItem('userId')));
   }
 
-  getAccountData(id: number) {
+  getAccountData(id: any) {
     this.profileService.getAccountData(id).subscribe(
       {
         next: (response:any) => {
@@ -38,7 +38,7 @@ export class ProfileComponent {
       }
     );
   }
-  
+
   updateAccountData(){
     this.profileService.updateAccountData(this.accountData).subscribe(
       (response:any) => {

@@ -20,6 +20,7 @@ export class RoomListComponent {
   ) {
     //se inicializa una suscripción para el observable roomCreated$ (para detectar la creación de habitaciones)
     this.roomsService.roomCreated$.subscribe(() => {
+
       this.getListOfRooms(); //actualiza la lista de habitaciones cuando se crea una nueva habitación
     });
   }
@@ -51,7 +52,8 @@ export class RoomListComponent {
    * Obtiene la lista de habitaciones
    */
   getListOfRooms() {
-    this.roomsService.getRoomsList().subscribe({
+    const arrender = localStorage.getItem('userId') || '';
+    this.roomsService.getRoomsByArrender(arrender).subscribe({
       next: (response) => {
         this.roomsCards = response;
       },

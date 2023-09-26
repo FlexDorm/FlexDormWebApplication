@@ -23,15 +23,14 @@ h2{
   width: 80%; /* Ajusta el ancho según tus necesidades */
   height: 80%; /* Ajusta el alto según tus necesidades */
   max-width: 400px; /* Ajusta el ancho máximo según tus necesidades */
-  max-height: 680px; /* Ajusta la altura máxima según tus necesidades */
+  max-height: 1200px; /* Ajusta la altura máxima según tus necesidades */
   text-align: center;
   overflow: auto; /* Añade desplazamiento si el contenido es demasiado largo */
 }
 
 /* Estilos adicionales según sea necesario */
 .form-group {
-  margin-bottom: 15px;
-  padding-top: 10px;
+  margin-bottom: 5px;
 }
 
 .form-group input {
@@ -43,7 +42,7 @@ h2{
 
 .form-group button {
   width: 72%;
-  padding: 10px;
+  padding: 15px;
   background-color: #670abe; /* Color de fondo del botón */
   color: #ffffff; /* Color de texto del botón */
   border: none;

@@ -23,6 +23,9 @@ export class RegisterComponent {
       phone: ['', Validators.required],
       address: ['', Validators.required],
       birthdate: ['', Validators.required],
+      password: ['', Validators.required],
+      profilePicture: ['', Validators.required],
+      username: ['', Validators.required],
     });
   }
   student = true;

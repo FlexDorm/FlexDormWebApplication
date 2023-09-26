@@ -5,9 +5,9 @@
     </button>
     <span class="title">FLEXIDORM</span>
     <div class="user-container" *ngIf="!isLoginPage">
-      <div class="user-info"> 
-        <span class="fullname"> 
-          <b>{{userData.name}} {{userData.lastname}}</b> 
+      <div class="user-info">
+        <span class="fullname">
+          <b>{{userData.name}} {{userData.lastname}}</b>
           @{{userData.username}}
         </span>
       </div>
@@ -20,11 +20,15 @@
   <mat-drawer #drawer opened="false" mode="side" position="start">
     <mat-nav-list class="custom-nav-list">
       <div class="nav-container">
-        <div class="nav-item" routerLinkActive="is-active">
+        <div class="nav-item" routerLinkActive="is-active" *ngIf="studentNav">
+          <mat-icon class="colorIcon">home</mat-icon>
+          <a mat-list-item routerLink="/all-rooms" >Habitaciones Disponibles</a>
+        </div>
+        <div class="nav-item" routerLinkActive="is-active" *ngIf="arrenderNav">
           <mat-icon class="colorIcon">home</mat-icon>
           <a mat-list-item routerLink="/rooms" >Mis Habitaciones</a>
         </div>
-        <div class="nav-item" routerLinkActive="is-active">
+        <div class="nav-item" routerLinkActive="is-active" *ngIf="studentNav">
           <mat-icon class="colorIcon">star_rate</mat-icon>
         <a mat-list-item routerLink="/favorites">Favoritos</a>
         </div>

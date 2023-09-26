@@ -17,6 +17,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { RoomDetailComponent } from './components/room-detail/room-detail.component';
+import { RoomActiveComponent } from './components/room-active/room-active.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { RoomDetailComponent } from './components/room-detail/room-detail.compon
     ProfileComponent,
     LoginComponent,
     RegisterComponent,
-    RoomDetailComponent
+    RoomDetailComponent,
+    RoomActiveComponent
   ],
   imports: [
     BrowserModule,

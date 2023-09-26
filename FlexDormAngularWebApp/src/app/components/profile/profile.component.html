@@ -1,45 +1,45 @@
 <div class="container">
-    <mat-card> 
+    <mat-card>
         <mat-card-content>
             <h1 style="text-align: center;">Hola, {{accountData.name}}</h1>
-            <img src="{{accountData.profilePicture}}" 
+            <img src="{{accountData.profilePicture}}"
             alt="Profile picture" class="profile-picture">
 
             <div >
                 <form *ngIf="edit" class="content" (ngSubmit)="updateAccountData()">
                     <div class="item">
                         <mat-form-field>
-                            <mat-label>Nombre</mat-label>
+                            <mat-label>Username</mat-label>
                             <input matInput [(ngModel)]="accountData.username" name="username">
                         </mat-form-field>
-                    </div>        
+                    </div>
                     <div class="item">
                         <mat-form-field>
                             <mat-label>Teléfono</mat-label>
                             <input matInput [(ngModel)]="accountData.phone" name="phone">
                         </mat-form-field>
-                    </div>                  
+                    </div>
                     <div class="item">
                         <mat-form-field>
                             <mat-label>Email</mat-label>
                             <input matInput [(ngModel)]="accountData.email" name="email">
                         </mat-form-field>
-                    </div>                       
+                    </div>
                     <div class="item">
                         <mat-form-field>
                             <mat-label>Dirección</mat-label>
                          <input matInput [(ngModel)]="accountData.address" name="address">
                         </mat-form-field>
-                    </div>                   
+                    </div>
                     <div class="item">
                         <button mat-raised-button class="button-purple" type="submit">Guardar</button>
                         <button mat-raised-button (click)="close()">Cancelar</button>
-                    </div>  
+                    </div>
                 </form>
 
                 <div *ngIf="!edit" class="content">
                     <div class="item">
-                        <p>Nombre:</p>
+                        <p>Username:</p>
                         <p>{{ accountData.username }}</p>
                     </div>
                     <div class="item">
@@ -54,10 +54,10 @@
                         <p>Dirección:</p>
                         <p>{{ accountData.address }}</p>
                     </div>
-                </div>            
+                </div>
             </div>
 
-            
+
         </mat-card-content>
         <mat-divider></mat-divider>
         <button mat-raised-button class="button-purple" *ngIf="!edit" (click)="editar()">Editar</button>

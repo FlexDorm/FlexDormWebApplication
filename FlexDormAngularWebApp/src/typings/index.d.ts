@@ -14,7 +14,7 @@ export interface RoomData {
   shortDescription: string;
 }
 export interface AccountData {
-  id: number;
+  id: any;
   name:string;
   lastname:string
   username: string;
