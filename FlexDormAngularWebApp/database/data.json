@@ -2,6 +2,8 @@
   "rooms": [
     {
       "id": 1,
+      "student": "",
+      "arrender": "1",
       "title": "Habitación en San Miguel",
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Habitación para 1 persona",
@@ -21,6 +23,8 @@
     },
     {
       "id": 2,
+      "student": "",
+      "arrender": "1",
       "title": "Habitación en Miraflores",
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Habitación para 2 personas",
@@ -40,6 +44,8 @@
     },
     {
       "id": 3,
+      "student": "",
+      "arrender": "1",
       "title": "Habitación en Barranco",
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Habitación para 1 persona",
@@ -59,6 +65,8 @@
     },
     {
       "id": 4,
+      "student": "",
+      "arrender": "1",
       "title": "Departamento en Surco",
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Departamento amoblado",
@@ -78,6 +86,8 @@
     },
     {
       "id": 5,
+      "student": "",
+      "arrender": "",
       "title": "Habitación en La Molina",
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Habitación para 2 personas",
@@ -97,6 +107,8 @@
     },
     {
       "id": 6,
+      "student": "",
+      "arrender": "",
       "title": "Casa en San Isidro",
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Casa grande con jardín",
@@ -116,6 +128,8 @@
     },
     {
       "id": 7,
+      "student": "",
+      "arrender": "",
       "title": "Departamento en Jesus María",
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Departamento con vista panorámica",
@@ -135,6 +149,8 @@
     },
     {
       "id": 8,
+      "student": "",
+      "arrender": "",
       "title": "Habitación en Lince",
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Habitación para 1 persona",
@@ -154,6 +170,8 @@
     },
     {
       "id": 9,
+      "student": "",
+      "arrender": "",
       "title": "Casa en Magdalena",
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Casa con piscina",
@@ -173,6 +191,8 @@
     },
     {
       "id": 10,
+      "student": "",
+      "arrender": "",
       "title": "Nuevo",
       "description": "xd",
       "price": 2,
@@ -189,6 +209,8 @@
     },
     {
       "id": 11,
+      "student": "",
+      "arrender": "1",
       "title": "AAA",
       "description": "XD",
       "price": 333,
@@ -203,6 +225,17 @@
       "email": "ejemplo11@gmail.com",
       "phone": "+51 999 888 777",
       "shortDescription": "Lujo y comodidad."
+    },
+    {
+      "id": 12,
+      "arrender": "1",
+      "photo": "https://source.unsplash.com/random/500X500?rooms",
+      "title": "Habitacion en Polvos Azules",
+      "description": "Habitacion centro de lima",
+      "price": 10,
+      "nearUniversities": [
+        "UTP"
+      ]
     }
   ],
   "account": [
@@ -274,5 +307,17 @@
       "type": "student",
       "id": "AhBc8jZ"
     }
-      ]
+  ],
+  "rental":[
+    {
+      "id":"1",
+      "arrender":"",
+      "student":"",
+      "room":"",
+      "date":"",
+      "hourInit":"",
+      "hourFinal":"",
+      "finalPrice":""
+    }
+  ]
 }

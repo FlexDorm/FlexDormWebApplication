@@ -54,9 +54,11 @@ export class RoomDialogComponent {
    * Registra una nueva habitación
    */
   registerRoom() {
+    const arrenderStorage=localStorage.getItem('userId')
     this.roomsService
       .registerRoom({
         id: 0,
+        arrender:arrenderStorage,
         photo: 'https://source.unsplash.com/random/500X500?rooms',
         ...this.form.value,
       })

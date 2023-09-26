@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Subject, throwError, catchError, tap } from 'rxjs';
 import { RoomData } from 'src/typings';
 import { environment } from 'src/environments/environment.prod';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -33,6 +34,17 @@ export class RoomsService {
     return this.http
       .get<RoomData[]>(`${environment.baseURL}/rooms`)
       .pipe(catchError(this.handlerError));
+  }
+
+  getRoomsByArrender(arrender: string): Observable<RoomData[]> {
+    return this.http
+      .get<RoomData[]>(`${environment.baseURL}/rooms?arrender=${arrender}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  private handleError(error: any): Observable<any> {
+    console.error('Ocurrió un error:', error);
+    return throwError(error);
   }
 
   /**
