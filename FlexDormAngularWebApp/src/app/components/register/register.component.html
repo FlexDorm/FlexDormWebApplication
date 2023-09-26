@@ -24,7 +24,25 @@
         </div>
       </div>
       <div class="form-group">
-        <input type="password" placeholder="Ingresa tu Nombre" name="name" id="name" formControlName="name">
+        <input type="password" placeholder="Ingresa tu Contraseña" name="password" id="password" formControlName="password">
+        <div *ngIf="registrationForm.get('password')?.invalid && (registrationForm.get('password')?.dirty || registrationForm.get('password')?.touched)">
+          <div *ngIf="registrationForm.get('password')?.hasError('required')" style="color: red;">Debes ingresar tu password.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Ingresa el enlace de tu foto" name="profilePicture" id="profilePicture" formControlName="profilePicture">
+        <div *ngIf="registrationForm.get('profilePicture')?.invalid && (registrationForm.get('profilePicture')?.dirty || registrationForm.get('profilePicture')?.touched)">
+          <div *ngIf="registrationForm.get('profilePicture')?.hasError('required')" style="color: red;">Debes ingresar el enlace de tu foto.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Ingresa tu username" name="username" id="username" formControlName="username">
+        <div *ngIf="registrationForm.get('username')?.invalid && (registrationForm.get('username')?.dirty || registrationForm.get('username')?.touched)">
+          <div *ngIf="registrationForm.get('username')?.hasError('required')" style="color: red;">Debes ingresar tu username.</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="text" placeholder="Ingresa tu Nombre" name="name" id="name" formControlName="name">
         <div *ngIf="registrationForm.get('name')?.invalid && (registrationForm.get('name')?.dirty || registrationForm.get('name')?.touched)">
           <div *ngIf="registrationForm.get('name')?.hasError('required')" style="color: red;">Debes ingresar tu nombre.</div>
         </div>

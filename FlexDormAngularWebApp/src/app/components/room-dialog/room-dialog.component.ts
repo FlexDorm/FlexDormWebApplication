@@ -59,6 +59,7 @@ export class RoomDialogComponent {
       .registerRoom({
         id: 0,
         arrender:arrenderStorage,
+        status:'free',
         photo: 'https://source.unsplash.com/random/500X500?rooms',
         ...this.form.value,
       })

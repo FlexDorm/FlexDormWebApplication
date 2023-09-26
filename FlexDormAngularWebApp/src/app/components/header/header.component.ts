@@ -20,22 +20,39 @@ export class HeaderComponent {
   isLoginPage: boolean = false;
 
   constructor(private router: Router, private authService:AuthService, private profileService:ProfileService) {
+    const type=localStorage.getItem('type')
+    switch(type){
+      case 'student':
+        this.studentNav=true;
+        this.arrenderNav=false;
+      break;
+      case 'arrender':
+        this.arrenderNav=true;
+        this.studentNav=false;
+        break;
+
+    }
     // Suscribirse a eventos de cambio de ruta
     router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         // Verificar si estamos en la página de 'login'
-        this.isLoginPage = event.url === '/login';
-        this.getAccountData(Number(localStorage.getItem('userId'))); 
-        this.isLoginPage = event.url === '/register';
+        this.getAccountData((localStorage.getItem('userId')));
+        this.isLoginPage = event.url === '/login' || event.url === '/register';
       }
     });
+  }
+
+  studentNav=false;
+  arrenderNav=false;
+
+  ngOnInit(): void {
   }
 
   logout(){
     this.authService.logout();
   }
-  
-  getAccountData(id: number) {
+
+  getAccountData(id: any) {
     this.profileService.getAccountData(id).subscribe(
       {
         next: (response:any) => {

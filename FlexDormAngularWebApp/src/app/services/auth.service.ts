@@ -26,6 +26,7 @@ export class AuthService {
           // Las credenciales coinciden para el mismo registro
           // Puedes realizar cualquier validación adicional aquí
           localStorage.setItem('userId', matchingAccount.id.toString());
+          localStorage.setItem('type', matchingAccount.type);
           this.loggedIn = true;
 
           return true;
@@ -76,6 +77,7 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('userId');
+    localStorage.removeItem('type');
     this.loggedIn = false;
   }
 

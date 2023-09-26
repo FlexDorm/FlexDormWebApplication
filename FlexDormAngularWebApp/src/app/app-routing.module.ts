@@ -14,7 +14,7 @@ const routes: Routes = [
   {path:'all-rooms', component:RoomActiveComponent},
   {path:'login',component:LoginComponent},
   {path:'register',component:RegisterComponent},
-  { path: 'rooms/:id', component: RoomDetailComponent },
+  { path: 'all-rooms/:id', component: RoomDetailComponent },
   { path:'favorites', component: FavoriteListComponent },
   { path: 'profile', component: ProfileComponent },
   { path: '', redirectTo: '/login', pathMatch: 'full' },
