@@ -20,20 +20,21 @@ export class HeaderComponent {
   isLoginPage: boolean = false;
 
   constructor(private router: Router, private authService:AuthService, private profileService:ProfileService) {
-    const type=localStorage.getItem('type')
-    switch(type){
-      case 'student':
-        this.studentNav=true;
-        this.arrenderNav=false;
-      break;
-      case 'arrender':
-        this.arrenderNav=true;
-        this.studentNav=false;
-        break;
 
-    }
     // Suscribirse a eventos de cambio de ruta
     router.events.subscribe((event) => {
+      const type=localStorage.getItem('type')
+      switch(type){
+        case 'student':
+          this.studentNav=true;
+          this.arrenderNav=false;
+        break;
+        case 'arrender':
+          this.arrenderNav=true;
+          this.studentNav=false;
+          break;
+
+      }
       if (event instanceof NavigationEnd) {
         // Verificar si estamos en la página de 'login'
         this.getAccountData((localStorage.getItem('userId')));

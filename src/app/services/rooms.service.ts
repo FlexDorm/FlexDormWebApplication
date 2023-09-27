@@ -63,4 +63,10 @@ export class RoomsService {
       tap(() => this.onRoomCreated()) //recupera la lista actualizada de habitaciones
     );
   }
+
+  updateRoomStatus(roomId: number, status: string): Observable<any> {
+    const url = `${environment.baseURL}/rooms/${roomId}`;
+    const body = { status };
+    return this.http.patch(url, body);
+  }
 }
