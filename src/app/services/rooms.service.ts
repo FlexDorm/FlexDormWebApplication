@@ -47,6 +47,12 @@ export class RoomsService {
       .pipe(catchError(this.handleError));
   }
 
+  getRoomsByArrenderRented(arrender: string): Observable<RoomData[]> {
+    return this.http
+      .get<RoomData[]>(`${environment.baseURL}/rooms?arrender=${arrender}&status=rented`)
+      .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: any): Observable<any> {
     console.error('Ocurrió un error:', error);
     return throwError(error);
@@ -64,9 +70,15 @@ export class RoomsService {
     );
   }
 
-  updateRoomStatus(roomId: number, status: string): Observable<any> {
+  updateRoomStatus(roomId: number, status: string, student:string): Observable<any> {
     const url = `${environment.baseURL}/rooms/${roomId}`;
-    const body = { status };
+    const body = { status,student };
     return this.http.patch(url, body);
+  }
+
+  getRoomsByStudentRented(student: string): Observable<RoomData[]> {
+    return this.http
+      .get<RoomData[]>(`${environment.baseURL}/rooms?student=${student}&status=rented`)
+      .pipe(catchError(this.handleError));
   }
 }
