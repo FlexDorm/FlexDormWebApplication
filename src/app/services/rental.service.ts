@@ -20,7 +20,7 @@ export class RentalService {
   }
 
   registerRental(rentalData: any): Observable<any> {
-    const url = `${this.localUrl}/rental`;
+    const url = `${this.baseUrl}/rental`;
     return this.http.post(url, rentalData);
   }
 
@@ -30,7 +30,7 @@ export class RentalService {
   }
   getRentByStudent(student: string): Observable<RentalData[]> {
     return this.http
-      .get<RentalData[]>(`${this.localUrl}/rental?student=${student}`)
+      .get<RentalData[]>(`${this.baseUrl}/rental?student=${student}`)
       .pipe(catchError(this.handleError));
   }
 
