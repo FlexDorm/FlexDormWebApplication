@@ -20,6 +20,7 @@ export class RoomDetailComponent  {
 
   roomData: RoomData | null = null;
   finalPriceRoom: number | undefined = undefined;
+  photoImage:string|undefined=undefined;
   roomId: number | null = null;
   constructor(private route: ActivatedRoute, private roomsService: RoomsService, private rentalService:RentalService, private _snackBar:MatSnackBar ) {}
 
@@ -41,6 +42,7 @@ export class RoomDetailComponent  {
         this.roomData = response.find((room) => room.id === this.roomId) ||null;
         console.log(this.roomData);
         this.finalPriceRoom=this.roomData?.price
+        this.photoImage=this.roomData?.photo
         console.log(this.finalPriceRoom)
       }
 
@@ -62,8 +64,8 @@ export class RoomDetailComponent  {
     return horasDecimal;
   }
 
-  updateRoomStatus(roomId: any, status: any) {
-    this.roomsService.updateRoomStatus(roomId, status).subscribe(
+  updateRoomStatus(roomId: any, status: any,student:any) {
+    this.roomsService.updateRoomStatus(roomId, status,student).subscribe(
       (response) => {
         console.log('Estado de la habitación actualizado con éxito', response);
       },
@@ -95,7 +97,8 @@ export class RoomDetailComponent  {
       this.rentalData.student=studentId,
       this.rentalData.room=this.roomId,
       this.rentalData.finalPrice = (this.finalPriceRoom ?? 0) * resulthour;
-      this.updateRoomStatus(this.roomId,'rented' )
+      this.rentalData.roomImage=this.photoImage;
+      this.updateRoomStatus(this.roomId,'rented', studentId)
       this.rentalService.registerRental(rentalData).subscribe(
         (response) => {
           console.log('Alquiler registrado con éxito:', response);

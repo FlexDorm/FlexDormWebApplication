@@ -1,0 +1,25 @@
+<div class="container responsive-grid">
+  <mat-card *ngFor="let card of rentCards">
+    <img mat-card-image [src]="card.roomImage" loading="lazy" />
+    <mat-card-header>
+      <mat-card-title>Reserva para {{ card.date }} </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <br />
+      <p>
+       Hora Inicial {{ card.hourInit }}
+      </p>
+      <p>
+        Hora Final {{ card.hourFinal }}
+       </p>
+      <p class="align-center">
+        <mat-icon>payments</mat-icon> &nbsp; Precio Total: S/ {{ card.finalPrice }}
+      </p>
+    </mat-card-content>
+    <mat-card-actions class="actions-container">
+      <button mat-raised-button class="button-purple" [routerLink]="" >Ver detalle de la Habitacion</button>
+    </mat-card-actions>
+    <br />
+  </mat-card>
+</div>
+

@@ -32,9 +32,9 @@
           <mat-icon class="colorIcon">star_rate</mat-icon>
         <a mat-list-item routerLink="/favorites">Favoritos</a>
         </div>
-        <div class="nav-item" routerLinkActive="is-active">
+        <div class="nav-item" routerLinkActive="is-active" *ngIf="studentNav">
           <mat-icon class="colorIcon">calendar_month</mat-icon>
-        <a mat-list-item routerLink="/opcion3">Mis Reservas</a>
+        <a mat-list-item routerLink="/rental/student">Mis Reservas</a>
       </div>
       <div class="nav-item" routerLinkActive="is-active">
         <mat-icon class="colorIcon">perm_identity</mat-icon>
