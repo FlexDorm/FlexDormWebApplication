@@ -103,6 +103,9 @@ export class RoomDetailComponent  {
         (response) => {
           console.log('Alquiler registrado con éxito:', response);
           this.openSnackBar('Tu renta se registro correctamente', 'Ok')
+          setTimeout(() => {
+            window.location.href = 'rental/student';
+          }, 2000);
         },
         (error) => {
           console.error('Error al registrar el alquiler:', error);
