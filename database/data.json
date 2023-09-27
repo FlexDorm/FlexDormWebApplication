@@ -8,7 +8,7 @@
       "photo": "https://source.unsplash.com/random/500X500?rooms",
       "description": "Habitación para 1 persona",
       "price": 7,
-      "status": "free",
+      "status": "rented",
       "address": "San Miguel",
       "nearUniversities": [
         "UPC",
@@ -21,28 +21,6 @@
       "email": "ejemplo@gmail.com",
       "phone": "+51 123 456 789",
       "shortDescription": "Habitación cómoda y acogedora."
-    },
-    {
-      "id": 2,
-      "student": "",
-      "arrender": "1",
-      "title": "Habitación en Miraflores",
-      "photo": "https://source.unsplash.com/random/500X500?rooms",
-      "description": "Habitación para 2 personas",
-      "price": 12.5,
-      "status": "free",
-      "address": "Miraflores",
-      "nearUniversities": [
-        "UPC",
-        "PUCP",
-        "UNMSM"
-      ],
-      "availability": "Martes, Jueves, Sábado",
-      "startTime": "16:00",
-      "endTime": "20:00",
-      "email": "ejemplo2@gmail.com",
-      "phone": "+51 987 654 321",
-      "shortDescription": "Ideal para parejas."
     },
     {
       "id": 3,
@@ -443,7 +421,19 @@
       "date": "",
       "hourInit": "",
       "hourFinal": "",
-      "finalPrice": ""
+      "finalPrice": "",
+      "observation": ""
+    },
+    {
+      "date": "1999-08-29",
+      "hourInit": "08:00",
+      "hourFinal": "15:00",
+      "email": "samm85299@gmail.com",
+      "phone": "+51924773421",
+      "observation": "ninguna",
+      "student": "1",
+      "room": 1,
+      "id": "OtNveSU"
     }
   ]
 }

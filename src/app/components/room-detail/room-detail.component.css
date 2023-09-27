@@ -2,13 +2,13 @@
     display: flex;
   justify-content: center;
   align-items: center; /* Centra verticalmente el contenido */
- 
+
   }
-  
+
   .align-center {
     margin-right: 20px; /* Ajusta el margen entre la imagen y la sección de información */
   }
-  
+
   .info-section {
     display: flex; /* Utiliza flexbox para alinear los elementos de información en columna */
     flex-direction: column; /* Alinea los elementos en columna */
@@ -17,7 +17,7 @@
     display: flex;
     justify-content: center;
   }
-  
+
   .button-group {
     display: flex;
     gap: 10px;
@@ -44,7 +44,7 @@
     padding: 10px; /* Espacio interno para los elementos */
     margin: 5px 0; /* Espacio entre elementos */
   }
-  
+
   /* Estilos adicionales para los íconos (opcional) */
   .item mat-icon {
     margin-right: 5px; /* Espacio entre el ícono y el texto */
@@ -52,4 +52,3 @@
   .mat-icon-color {
     color: #a070ce !important;; /* Cambia el color de los iconos a morado */
   }
-  
