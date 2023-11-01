@@ -25,11 +25,11 @@ export class HeaderComponent {
     router.events.subscribe((event) => {
       const type=localStorage.getItem('type')
       switch(type){
-        case 'student':
+        case 'Student':
           this.studentNav=true;
           this.arrenderNav=false;
         break;
-        case 'arrender':
+        case 'Arrender':
           this.arrenderNav=true;
           this.studentNav=false;
           break;
@@ -61,7 +61,7 @@ export class HeaderComponent {
       this.userData = {} as Account;
       console.error('Error al obtener los datos del perfil:');
     }
-    
+
   }
 
 }

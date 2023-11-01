@@ -32,6 +32,8 @@ export class AuthService {
             // Si las credenciales son correctas, guarda la información del usuario en el localStorage
             const user = response.data;
             localStorage.setItem('userData', JSON.stringify(user));
+            localStorage.setItem('id',JSON.stringify(user.userId))
+            localStorage.setItem('type',user.dtype)
             this.loggedIn = true;
             return true;
           } else {
@@ -43,7 +45,7 @@ export class AuthService {
       );
   }
 
-  
+
   register2(account: Account, type: "student" | "arrender") {
     // Verificar si el correo electrónico ya existe
     return this.http
@@ -68,6 +70,8 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('userData');
+    localStorage.removeItem('type');
+    localStorage.removeItem('id');
     this.loggedIn = false;
   }
 
