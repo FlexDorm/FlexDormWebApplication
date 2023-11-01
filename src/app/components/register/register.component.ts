@@ -1,28 +1,35 @@
-import { Component,Renderer2, ElementRef  } from '@angular/core';
+import { Component, Renderer2, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
 import { RoomDialogComponent } from '../room-dialog/room-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ApiResponseStatus } from 'src/app/models/api-response.model';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent {
-
   registrationForm: FormGroup;
-  usuarioExit=false;
-  usuarioEmail=false;
-  constructor(private renderer: Renderer2, private el: ElementRef, private authService:AuthService,private formBuilder: FormBuilder, private router:Router,private _snackBar: MatSnackBar) {
+  usuarioExit = false;
+  usuarioEmail = false;
+  constructor(
+    private renderer: Renderer2,
+    private el: ElementRef,
+    private authService: AuthService,
+    private formBuilder: FormBuilder,
+    private router: Router,
+    private _snackBar: MatSnackBar
+  ) {
     this.registrationForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      name: ['', Validators.required],
+      firstname: ['', Validators.required],
       lastname: ['', Validators.required],
-      phone: ['', Validators.required],
+      phoneNumber: ['', Validators.required],
       address: ['', Validators.required],
-      birthdate: ['', Validators.required],
+      birthDate: ['', Validators.required],
       password: ['', Validators.required],
       profilePicture: ['', Validators.required],
       username: ['', Validators.required],
@@ -59,8 +66,7 @@ export class RegisterComponent {
     this.renderer.setStyle(miBoton2, 'color', 'white');
   }
 
-
-  selectedDate: Date | undefined;  // Variable para almacenar la fecha seleccionada
+  selectedDate: Date | undefined; // Variable para almacenar la fecha seleccionada
 
   onDateSelected(event: any) {
     this.selectedDate = event.value; // Captura la fecha seleccionada
@@ -69,51 +75,44 @@ export class RegisterComponent {
   }
 
   onSubmit() {
-    console.log("llego sumbit")
-    console.log("Formulario válido:", this.registrationForm.valid);
-    console.log("Valores del formulario:", this.registrationForm.value);
+    console.log('Formulario válido:', this.registrationForm.valid);
+    console.log('Valores del formulario:', this.registrationForm.value);
     if (this.registrationForm.valid) {
       const userData = this.registrationForm.value;
-      switch(this.student)
-      {
+      switch (this.student) {
         case true:
-          userData.type='student'
-        break;
+          userData.dtype = 'student';
+          break;
         case false:
-          userData.type='arrender'
-        break;
+          userData.dtype = 'arrender';
+          break;
       }
-      this.authService.register(userData).subscribe(
-        (response) => {
-          console.log('Registro exitoso', response);
-          switch(response){
-            case 'correo existente':
-              this.openSnackBar('El correo que intentas registrar ya existe', 'Ok')
-              break;
-            case true:
-              this.openSnackBar('Usuario registrado Correctamente', 'Ok')
-              setTimeout(() => {
-                window.location.href = 'login';
-              }, 3000);
-              break;
+      this.authService.register2(userData, userData.dtype).subscribe({
+        next: (response) => {
+          if (response.status === ApiResponseStatus.Success) {
+            this.openSnackBar('Usuario registrado Correctamente', 'Ok');
+            setTimeout(() => {
+              window.location.href = 'login';
+            }, 3000);
           }
+
+          if (response.status === ApiResponseStatus.Error) {
+            this.openSnackBar(`Error al registrar el usuario: ${response.message}`, 'Ok');
+          } 
         },
-        (error) => {
-          console.error('Error en el registro', error);
-        }
-      );
+      });
     } else {
-      this.openSnackBar('Debes llenar todos los campos del formulario', 'Ok')
-      console.log("invalido")
+      this.openSnackBar('Debes llenar todos los campos del formulario', 'Ok');
+      console.log('invalido');
     }
   }
 
-    /**
+  /**
    * Abre la alerta de snackbar
    * @param message Mensaje a mostrar
    * @param action Acción
    */
-    openSnackBar(message: string, action?: string) {
-      this._snackBar.open(message, action, { duration: 5_000 });
-    }
+  openSnackBar(message: string, action?: string) {
+    this._snackBar.open(message, action, { duration: 5_000 });
+  }
 }

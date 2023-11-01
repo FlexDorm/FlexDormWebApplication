@@ -1,7 +1,7 @@
 <div class="container">
     <mat-card>
         <mat-card-content>
-            <h1 style="text-align: center;">Hola, {{accountData.name}}</h1>
+            <h1 style="text-align: center;">Hola, {{accountData.firstname}} {{accountData.lastname}}</h1>
             <img src="{{accountData.profilePicture}}"
             alt="Profile picture" class="profile-picture">
 
@@ -16,7 +16,7 @@
                     <div class="item">
                         <mat-form-field>
                             <mat-label>Teléfono</mat-label>
-                            <input matInput [(ngModel)]="accountData.phone" name="phone">
+                            <input matInput [(ngModel)]="accountData.phoneNumber" name="phone">
                         </mat-form-field>
                     </div>
                     <div class="item">
@@ -44,7 +44,7 @@
                     </div>
                     <div class="item">
                         <p>Teléfono:</p>
-                        <p>{{ accountData.phone }}</p>
+                        <p>{{ accountData.phoneNumber }}</p>
                     </div>
                     <div class="item">
                         <p>Email:</p>

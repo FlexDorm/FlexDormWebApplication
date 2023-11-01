@@ -1,27 +1,43 @@
 export class Account {
-  id: any;
-  name: string;
+  userId: number;
+  firstname: string;
   lastname:string;
   username:string;
-  phone:string;
+  phoneNumber:string;
   email: string;
   address:string;
   profilePicture:string
   password: string;
-  type:string;
-  birthdate:string;
+  dtype:Dtype;
+  birthDate:string;
+  gender: string;
+  university:string;
+  isVerified:boolean;
+  isEnabled:boolean;
 
-  constructor(id: any,name:string, lastname:string,username:string,phone:string, email: string, address:string, password: string, type:string, birthdate: string, profilePicture:string) {
-    this.id = id;
-    this.name=name;
-    this.lastname=lastname;
-    this.username=username;
-    this.phone=phone;
+  constructor(userId: number, firstname: string, lastname: string, username: string, phoneNumber: string, email: string,
+    address: string, profilePicture: string, password: string, dtype: Dtype, birthDate: string,
+    gender: string, university: string, isVerified: boolean, isEnabled: boolean) {
+    this.userId = userId;
+    this.firstname = firstname;
+    this.lastname = lastname;
+    this.username = username;
+    this.phoneNumber = phoneNumber;
     this.email = email;
-    this.address=address;
+    this.address = address;
+    this.profilePicture = profilePicture;
     this.password = password;
-    this.type=type;
-    this.birthdate=birthdate;
-    this.profilePicture=profilePicture;
-  }
+    this.dtype = dtype;
+    this.birthDate = birthDate;
+    this.gender = gender;
+    this.university = university;
+    this.isVerified = isVerified;
+    this.isEnabled = isEnabled;
+    }
+
+}
+
+export enum Dtype {
+  Student = 'Student',
+  Arrender = 'Arrender',
 }

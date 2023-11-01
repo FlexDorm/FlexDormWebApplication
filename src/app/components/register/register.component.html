@@ -42,7 +42,7 @@
         </div>
       </div>
       <div class="form-group">
-        <input type="text" placeholder="Ingresa tu Nombre" name="name" id="name" formControlName="name">
+        <input type="text" placeholder="Ingresa tu Nombre" name="firstname" id="name" formControlName="firstname">
         <div *ngIf="registrationForm.get('name')?.invalid && (registrationForm.get('name')?.dirty || registrationForm.get('name')?.touched)">
           <div *ngIf="registrationForm.get('name')?.hasError('required')" style="color: red;">Debes ingresar tu nombre.</div>
         </div>
@@ -54,7 +54,7 @@
         </div>
       </div>
       <div class="form-group">
-        <input type="text" placeholder="Ingresa tu número Celular" name="phone" id="phone" formControlName="phone">
+        <input type="text" placeholder="Ingresa tu número Celular" name="phoneNumber" id="phoneNumber" formControlName="phoneNumber">
         <div *ngIf="registrationForm.get('phone')?.invalid && (registrationForm.get('phone')?.dirty || registrationForm.get('phone')?.touched)">
           <div *ngIf="registrationForm.get('phone')?.hasError('required')" style="color: red;">Debes ingresar tu número de teléfono.</div>
         </div>
@@ -66,11 +66,11 @@
         </div>
       </div>
       <div class="form-group2">
-        <input matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento" readonly name="birthdate" formControlName="birthdate">
+        <input matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento" readonly name="birthDate" formControlName="birthDate">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-        <div *ngIf="registrationForm.get('birthdate')?.invalid && (registrationForm.get('birthdate')?.dirty || registrationForm.get('birthdate')?.touched)">
-          <div *ngIf="registrationForm.get('birthdate')?.hasError('required')" style="color: red;">Debes seleccionar tu fecha de nacimiento.</div>
+        <div *ngIf="registrationForm.get('birthDate')?.invalid && (registrationForm.get('birthDate')?.dirty || registrationForm.get('birthDate')?.touched)">
+          <div *ngIf="registrationForm.get('birthDate')?.hasError('required')" style="color: red;">Debes seleccionar tu fecha de nacimiento.</div>
         </div>
         </div>
       <div class="form-group" *ngIf="arrendar" id="crearArrendar">

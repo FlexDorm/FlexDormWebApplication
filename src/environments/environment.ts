@@ -1,4 +1,4 @@
 export const environment = {
   development: false,
-  baseURL: 'https://flexserverjson.onrender.com'
+  baseURL: 'http://localhost:8080/api/v1'
 };

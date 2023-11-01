@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { Router,NavigationEnd } from '@angular/router';
+import { Account } from 'src/app/models/account.model';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProfileService } from 'src/app/services/profile.service';
-import { AccountData } from 'src/typings';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +11,7 @@ import { AccountData } from 'src/typings';
 })
 export class HeaderComponent {
   isNavListHidden = false;
-  userData: AccountData = {} as AccountData;
+  userData: Account = {} as Account;
 
   toggleNavList() {
     this.isNavListHidden = !this.isNavListHidden;
@@ -37,7 +37,7 @@ export class HeaderComponent {
       }
       if (event instanceof NavigationEnd) {
         // Verificar si estamos en la página de 'login'
-        this.getAccountData((localStorage.getItem('userId')));
+        this.getAccountData();
         this.isLoginPage = event.url === '/login' || event.url === '/register';
       }
     });
@@ -53,18 +53,15 @@ export class HeaderComponent {
     this.authService.logout();
   }
 
-  getAccountData(id: any) {
-    this.profileService.getAccountData(id).subscribe(
-      {
-        next: (response:any) => {
-          this.userData = response;
-          console.log(this.userData);
-        },
-        error: (error) => {
-          console.error('Error al obtener los datos del perfil:', error);
-        },
-      }
-    );
+  getAccountData() {
+    let userData = this.profileService.getAccountDataFromLocalStorage();
+    if (userData) {
+      this.userData = userData;
+    } else {
+      this.userData = {} as Account;
+      console.error('Error al obtener los datos del perfil:');
+    }
+    
   }
 
 }

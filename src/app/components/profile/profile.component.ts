@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ProfileService } from '../../services/profile.service';
-import { AccountData } from 'src/typings';
+import { Account } from 'src/app/models/account.model';
 
 @Component({
   selector: 'app-profile',
@@ -10,7 +10,7 @@ import { AccountData } from 'src/typings';
 export class ProfileComponent {
 
   edit = false;
-  accountData: AccountData = {} as AccountData;
+  accountData: Account = {} as Account;
 
   constructor(private profileService: ProfileService) {}
 
@@ -23,29 +23,27 @@ export class ProfileComponent {
   }
 
   ngOnInit() {
-    this.getAccountData((localStorage.getItem('userId')));
+    this.getAccountData();
   }
 
-  getAccountData(id: any) {
-    this.profileService.getAccountData(id).subscribe(
-      {
-        next: (response:any) => {
-          this.accountData = response;
-        },
-        error: (error) => {
-          console.error('Error al obtener los datos del perfil:', error);
-        },
-      }
-    );
+  getAccountData() {
+    let userData = this.profileService.getAccountDataFromLocalStorage();
+    if (userData) {
+      this.accountData = userData;
+    } else {
+      this.accountData = {} as Account;
+      console.error('Error al obtener los datos del perfil:');
+    }
+    
   }
 
   updateAccountData(){
     this.profileService.updateAccountData(this.accountData).subscribe(
-      (response:any) => {
+      (response) => {
         console.log('Datos de usuario actualizados', response);
         this.edit = false;
       },
-      (error:any) => {
+      (error) => {
         console.error('Error al guardar los cambios:', error);
       }
     );

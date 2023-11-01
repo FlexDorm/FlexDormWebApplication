@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment.prod';
-import { AccountData } from 'src/typings';
-import { catchError } from 'rxjs/operators';
+import { catchError, map } from 'rxjs/operators';
 import { HttpErrorResponse } from '@angular/common/http';
 import { throwError } from 'rxjs';
+import { Account } from '../models/account.model';
+import { ApiResponse, ApiResponseStatus } from '../models/api-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,9 +24,51 @@ export class ProfileService {
     .pipe(catchError(this.handlerError));
   }
 
-  updateAccountData(accountData: AccountData): any{
-    const id =  accountData.id;
-    return this.http.put(`${environment.baseURL}/account/${id}`, accountData);
+  getAccountDataFromLocalStorage() {
+    const userData = localStorage.getItem('userData');
+    if (userData) {
+      return JSON.parse(userData) as Account;
+    } else {
+      return null;
+    }
+  }
+
+  updateAccountData(accountData: Account){
+    const id =  accountData.userId;
+
+    if(accountData.dtype === 'Student'){
+      return this.http.put<ApiResponse<Account>>(`${environment.baseURL}/auth/student/${id}`, accountData).pipe(
+        map((response) => {
+          // Verifica si la respuesta es exitosa
+          if (response.status === ApiResponseStatus.Success) {
+            // Si las credenciales son correctas, guarda la información del usuario en el localStorage
+            const user = response.data;
+            localStorage.setItem('userData', JSON.stringify(user));
+            return true;
+          } else {
+            console.error('Error en la solicitud HTTP:', response);
+            return false;
+          }
+        }),
+      );
+
+    } else {
+      return this.http.put<ApiResponse<Account>>(`${environment.baseURL}/auth/arrender/${id}`, accountData).pipe(
+        map((response) => {
+          // Verifica si la respuesta es exitosa
+          if (response.status === ApiResponseStatus.Success) {
+            // Si las credenciales son correctas, guarda la información del usuario en el localStorage
+            const user = response.data;
+            localStorage.setItem('userData', JSON.stringify(user));
+            return true;
+          } else {
+            console.error('Error en la solicitud HTTP:', response);
+            return false;
+          }
+        }),
+      );
+    }
+
   }
 
 }
