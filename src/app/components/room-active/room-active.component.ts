@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { RoomsService } from 'src/app/services/rooms.service';
-import { RoomData } from 'src/typings';
+import { RoomModel } from 'src/app/models/room.model';
 @Component({
   selector: 'app-room-active',
   templateUrl: './room-active.component.html',
   styleUrls: ['./room-active.component.css']
 })
 export class RoomActiveComponent {
-  roomsCards: RoomData[] = [];
+  roomsCards: RoomModel[] = [];
 
   constructor(
     private roomsService: RoomsService,

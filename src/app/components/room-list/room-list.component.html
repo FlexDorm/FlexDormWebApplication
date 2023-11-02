@@ -8,7 +8,7 @@
 <div class="container responsive-grid">
   <mat-card *ngFor="let card of roomsCards">
     <!-- IMAGEN -->
-    <img mat-card-image [src]="card.photo" loading="lazy" />
+    <img mat-card-image [src]="card.imageUrl" loading="lazy" />
 
     <!-- TITULO -->
     <mat-card-header>
@@ -28,7 +28,7 @@
       </p>
 
       <mat-chip-listbox>
-        <mat-chip *ngFor="let university of card.nearUniversities" class="outlined-chip">
+        <mat-chip *ngFor="let university of card.nearUniversitiesArray" class="outlined-chip">
           <span class="circle">●</span> {{ university }}
         </mat-chip>
       </mat-chip-listbox>

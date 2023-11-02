@@ -32,7 +32,7 @@ export class AuthService {
             // Si las credenciales son correctas, guarda la información del usuario en el localStorage
             const user = response.data;
             localStorage.setItem('userData', JSON.stringify(user));
-            localStorage.setItem('id',JSON.stringify(user.userId))
+            localStorage.setItem('userId',JSON.stringify(user.userId))
             localStorage.setItem('type',user.dtype)
             this.loggedIn = true;
             return true;
@@ -71,7 +71,7 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('userData');
     localStorage.removeItem('type');
-    localStorage.removeItem('id');
+    localStorage.removeItem('userId ');
     this.loggedIn = false;
   }
 

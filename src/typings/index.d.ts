@@ -1,17 +1,11 @@
 export interface RoomData {
-  id: number;
   title: string;
-  photo: string;
+  imageUrl: string;
+  arrenderId: string|null;
   description: string;
   price: number;
   address: string;
-  nearUniversities: string[];
-  availability: string;
-  startTime: string;
-  endTime: string;
-  email: string;
-  phone: string;
-  shortDescription: string;
+  nearUniversities: string;
 }
 export interface AccountData {
   id: any;

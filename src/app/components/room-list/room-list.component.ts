@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RoomsService } from 'src/app/services/rooms.service';
-import { RoomData } from 'src/typings';
+import { RoomModel } from 'src/app/models/room.model';
 import { MatDialog } from '@angular/material/dialog';
 import { RoomDialogComponent } from '../room-dialog/room-dialog.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrls: ['./room-list.component.css'],
 })
 export class RoomListComponent {
-  roomsCards: RoomData[] = [];
+  roomsCards: RoomModel[] = [];
 
   constructor(
     private roomsService: RoomsService,
@@ -55,11 +55,16 @@ export class RoomListComponent {
     const arrender = localStorage.getItem('userId') || '';
     this.roomsService.getRoomsByArrender(arrender).subscribe({
       next: (response) => {
-        this.roomsCards = response;
+        this.roomsCards = response.data;
+        // Crear una nueva propiedad para almacenar la versión transformada de nearUniversities
+        this.roomsCards.forEach((room: RoomModel) => {
+          room.nearUniversitiesArray = room.nearUniversities.split(',').map(university => university.trim());
+        });
       },
       error: (error) => {
         this.openSnackBar(`Error al cargar datos -> ${error.message}`);
       },
     });
   }
+
 }

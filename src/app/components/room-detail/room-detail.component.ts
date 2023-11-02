@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { RoomsService } from 'src/app/services/rooms.service';
-import { RoomData } from 'src/typings';
+import { RoomModel } from 'src/app/models/room.model';
 import { ActivatedRoute } from '@angular/router';
 import { RentalService } from 'src/app/services/rental.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -18,7 +18,7 @@ export class RoomDetailComponent  {
     this.return = true;
   }
 
-  roomData: RoomData | null = null;
+  roomData: RoomModel | null = null;
   finalPriceRoom: number | undefined = undefined;
   photoImage:string|undefined=undefined;
   roomId: number | null = null;
@@ -42,7 +42,7 @@ export class RoomDetailComponent  {
         this.roomData = response.find((room) => room.id === this.roomId) ||null;
         console.log(this.roomData);
         this.finalPriceRoom=this.roomData?.price
-        this.photoImage=this.roomData?.photo
+        this.photoImage=this.roomData?.imageUrl
         console.log(this.finalPriceRoom)
       }
 
