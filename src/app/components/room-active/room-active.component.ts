@@ -33,7 +33,11 @@ export class RoomActiveComponent {
   getListOfRooms() {
     this.roomsService.getRoomsListFree().subscribe({
       next: (response) => {
-        this.roomsCards = response;
+        this.roomsCards = response.data;
+        // Crear una nueva propiedad para almacenar la versión transformada de nearUniversities
+        this.roomsCards.forEach((room: RoomModel) => {
+          room.nearUniversitiesArray = room.nearUniversities.split(',').map(university => university.trim());
+        });
       },
       error: (error) => {
       },

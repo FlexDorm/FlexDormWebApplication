@@ -39,7 +39,7 @@ export class RoomsService {
   }
   getRoomsListFree() {
     return this.http
-      .get<RoomModel[]>(`${environment.baseURL}/rooms?status=free`)
+      .get<ApiResponse<RoomModel[]>>(`${environment.baseURL}/room/getRoomsByStatusId/free`)
       .pipe(catchError(this.handlerError));
   }
 
