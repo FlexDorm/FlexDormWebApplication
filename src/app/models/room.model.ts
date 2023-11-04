@@ -1,5 +1,6 @@
 export interface RoomModel {
   id: number;
+  roomId:string;
   title: string;
   imageUrl: string;
   arrenderId: string;

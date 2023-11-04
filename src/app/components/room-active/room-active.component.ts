@@ -34,6 +34,7 @@ export class RoomActiveComponent {
     this.roomsService.getRoomsListFree().subscribe({
       next: (response) => {
         this.roomsCards = response.data;
+        console.log(this.roomsCards)
         // Crear una nueva propiedad para almacenar la versión transformada de nearUniversities
         this.roomsCards.forEach((room: RoomModel) => {
           room.nearUniversitiesArray = room.nearUniversities.split(',').map(university => university.trim());

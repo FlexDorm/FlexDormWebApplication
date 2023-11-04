@@ -21,7 +21,7 @@ this.getListOfRooms();
     const student = localStorage.getItem('userId') || '';
     this.rentalService.getRentByStudent(student).subscribe({
       next: (response) => {
-        this.rentCards = response;
+        this.rentCards = response.data;
       },
       error: (error) => {
 

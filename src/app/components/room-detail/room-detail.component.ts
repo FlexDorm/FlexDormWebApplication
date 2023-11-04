@@ -18,7 +18,7 @@ export class RoomDetailComponent  {
     this.return = true;
   }
 
-  roomData: RoomModel | null = null;
+  roomData: RoomModel [] = [];
   finalPriceRoom: number | undefined = undefined;
   photoImage:string|undefined=undefined;
   roomId: number | null = null;
@@ -33,19 +33,19 @@ export class RoomDetailComponent  {
     }
     console.log('ddddddddd');
     console.log(this.roomId);
-    this.getRoomByID();
+    this.getRoomByID(this.roomId);
   }
-  getRoomByID() {
-    this.roomsService.getRoomsList().subscribe({
+  getRoomByID(roomId: number|null) {
+    this.roomsService.getRoomsList(roomId).subscribe({
       next: (response) => {
-
-        this.roomData = response.find((room) => room.id === this.roomId) ||null;
+        this.roomData = response.data;
         console.log(this.roomData);
-        this.finalPriceRoom=this.roomData?.price
-        this.photoImage=this.roomData?.imageUrl
-        console.log(this.finalPriceRoom)
+        this.roomData.forEach((room: RoomModel) => {
+          this.finalPriceRoom = room.price;
+          this.photoImage = room.imageUrl;
+        });
+        console.log(this.finalPriceRoom);
       }
-
     });
   }
 
@@ -93,12 +93,12 @@ export class RoomDetailComponent  {
     {
       this.openSnackBar('La fecha final debe ser mayor a la inicial','Ok')
     }else{
-      const studentId=localStorage.getItem('userId')
-      this.rentalData.student=studentId,
+      const studentId = localStorage.getItem('userId');
+      const longStudent = studentId ? parseInt(studentId, 10) : 0;
+      this.rentalData.student=longStudent,
       this.rentalData.room=this.roomId,
       this.rentalData.finalPrice = (this.finalPriceRoom ?? 0) * resulthour;
-      this.rentalData.roomImage=this.photoImage;
-      this.updateRoomStatus(this.roomId,'rented', studentId)
+      this.rentalData.imageUrl=this.photoImage;
       this.rentalService.registerRental(rentalData).subscribe(
         (response) => {
           console.log('Alquiler registrado con éxito:', response);

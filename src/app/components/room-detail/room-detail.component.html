@@ -1,19 +1,19 @@
-<div *ngIf="roomData" class="container responsive-grid">
+<div *ngIf="roomData && roomData.length > 0" class="container responsive-grid">
   <mat-card class="full-card">
     <form (ngSubmit)="submitReservation(rentalData)">
     <mat-card-content class="content-container">
       <div class="title-section">
-        <h1>{{ roomData.title }}</h1>
+        <h1>{{ roomData[0].title }}</h1>
         <h5>
-          {{ roomData.description }}
+          {{ roomData[0].description }}
           &nbsp;
           <mat-icon class="mat-icon-color">payments</mat-icon>
-          &nbsp; S/ <span class="mat-icon-color">{{ roomData.price }}</span> / hora
+          &nbsp; S/ <span class="mat-icon-color">{{ roomData[0].price }}</span> / hora
         </h5>
       </div>
       <div class="container">
         <div class="align-center">
-          <img mat-card-image [src]="roomData.imageUrl" loading="lazy" width="400" height="300" />
+          <img mat-card-image [src]="roomData[0].imageUrl" loading="lazy" width="400" height="300" />
         </div>
 
         <div class="info-section">

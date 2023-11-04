@@ -3,10 +3,10 @@ export interface RentalData {
   arrender:string;
   student:string;
   room:string;
-  roomImage:string;
+  imageUrl:string;
   date:string;
   hourInit:string;
   hourFinal:string;
-  finalPrice:string;
+  totalPrice:string;
   observation:string;
 }

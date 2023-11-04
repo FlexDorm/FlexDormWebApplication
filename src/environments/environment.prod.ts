@@ -1,4 +1,4 @@
 export const environment = {
   development: true,
-  baseURL: 'http://localhost:8080/api/v1'
+  baseURL: 'https://flexidorm-api-fkacd.ondigitalocean.app/api/v1'
 };

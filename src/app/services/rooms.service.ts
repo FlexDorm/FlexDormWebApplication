@@ -32,9 +32,9 @@ export class RoomsService {
   /**
    * Obtiene la lista de habitaciones (GET)
    */
-  getRoomsList() {
+  getRoomsList(roomId:number|null) {
     return this.http
-      .get<RoomModel[]>(`${environment.baseURL}/rooms`)
+      .get<ApiResponse<RoomModel[]>>(`${environment.baseURL}/room/getRoomsByRoomId/${roomId}`)
       .pipe(catchError(this.handlerError));
   }
   getRoomsListFree() {

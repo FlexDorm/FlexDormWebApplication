@@ -4,6 +4,7 @@ import { Subject, throwError, catchError, tap } from 'rxjs';
 import { RentalData } from '../models/rental.models';
 import { environment } from 'src/environments/environment.prod';
 import { Observable } from 'rxjs';
+import { ApiResponse } from '../models/api-response.model';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +21,7 @@ export class RentalService {
   }
 
   registerRental(rentalData: any): Observable<any> {
-    const url = `${this.baseUrl}/rental`;
+    const url = `${this.baseUrl}/rental/registerRental`;
     return this.http.post(url, rentalData);
   }
 
@@ -28,9 +29,9 @@ export class RentalService {
     console.error('Ocurrió un error:', error);
     return throwError(error);
   }
-  getRentByStudent(student: string): Observable<RentalData[]> {
+  getRentByStudent(student: string): Observable<ApiResponse<RentalData[]>> {
     return this.http
-      .get<RentalData[]>(`${this.baseUrl}/rental?student=${student}`)
+      .get<ApiResponse<RentalData[]>>(`${this.baseUrl}/rental/getRentalsByStudentId/${student}`)
       .pipe(catchError(this.handleError));
   }
 
