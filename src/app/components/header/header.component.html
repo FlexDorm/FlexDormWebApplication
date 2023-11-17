@@ -36,13 +36,21 @@
           <mat-icon class="colorIcon">calendar_month</mat-icon>
         <a mat-list-item routerLink="/rental/student">Mis Reservas</a>
       </div>
+      <div class="nav-item" routerLinkActive="is-active" *ngIf="arrenderNav">
+        <mat-icon class="colorIcon">calendar_month</mat-icon>
+      <a mat-list-item routerLink="/rental/arrender">Mis Reservas</a>
+    </div>
       <div class="nav-item" routerLinkActive="is-active">
         <mat-icon class="colorIcon">perm_identity</mat-icon>
         <a mat-list-item routerLink="/profile">Mi Perfil</a>
       </div>
-      <div class="nav-item" routerLinkActive="is-active">
+      <div class="nav-item" routerLinkActive="is-active" *ngIf="arrenderNav">
         <mat-icon class="colorIcon">wallet</mat-icon>
-        <a mat-list-item routerLink="/opcion5">Mis Movimientos</a>
+        <a mat-list-item routerLink="/moviment/arrender">Mis Movimientos</a>
+      </div>
+      <div class="nav-item" routerLinkActive="is-active" *ngIf="studentNav">
+        <mat-icon class="colorIcon">wallet</mat-icon>
+        <a mat-list-item routerLink="/moviment/student">Mis Movimientos</a>
       </div>
       <div class="nav-item" routerLinkActive="is-active" (click)="drawer.toggle()" (click)="logout()">
         <mat-icon class="colorIcon">power_settings_new</mat-icon>

@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RentalService } from 'src/app/services/rental.service';
 import { RentalData } from 'src/app/models/rental.models';
 import { tap } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 @Component({
-  selector: 'app-reservas-student',
-  templateUrl: './reservas-student.component.html',
-  styleUrls: ['./reservas-student.component.css']
+  selector: 'app-reservas-arrender',
+  templateUrl: './reservas-arrender.component.html',
+  styleUrls: ['./reservas-arrender.component.css']
 })
-export class ReservasStudentComponent {
+export class ReservasArrenderComponent{
+
   rentCards: RentalData[] = [];
 
-  constructor(private rentalService:RentalService){
+  constructor(private rentalService:RentalService,private _snackBar:MatSnackBar){
 
   }
 
@@ -34,8 +37,8 @@ this.getListOfRooms();
   }
 
   getListOfRooms() {
-    const student = localStorage.getItem('userId') || '';
-    this.rentalService.getRentByStudent(student).subscribe({
+    const arrender = localStorage.getItem('userId') || '';
+    this.rentalService.getRentByArrender(arrender).subscribe({
       next: (response) => {
       this.rentCards = response.data;
       // Verificar si rentCards es un array y tiene al menos un elemento
@@ -58,13 +61,26 @@ this.getListOfRooms();
     });
   }
 
-  onToggleFavorite(reservationId: string): void {
-    this.rentalService.toggleFavorite(reservationId)
+  onToggleEndRent(reservationId: string): void {
+    this.rentalService.toggleEndRent(reservationId)
       .pipe(
         tap((response) => {
-          console.log(`Se ha cambiado el estado de favorito para reservationId: ${reservationId}`);
+          this.openSnackBar('Tu renta se finalizo correctamente', 'Ok')
+          setTimeout(() => {
+            location.reload();
+          }, 2000);
+          console.log(`Se ha finalizado la renta para reservationId: ${reservationId}`);
         })
       )
       .subscribe();
   }
+
+      /**
+   * Abre la alerta de snackbar
+   * @param message Mensaje a mostrar
+   * @param action Acción
+   */
+      openSnackBar(message: string, action?: string) {
+        this._snackBar.open(message, action, { duration: 5_000 });
+      }
 }

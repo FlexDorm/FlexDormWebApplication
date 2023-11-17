@@ -12,13 +12,17 @@
       <p>
         Hora Final {{ card.hourFinal }}
        </p>
-       <mat-slide-toggle [(ngModel)]="card.favorite" (change)="onToggleFavorite(card.reservationId)">
-        Favorito
-      </mat-slide-toggle>
       <p class="align-center">
         <mat-icon>payments</mat-icon> &nbsp; Precio Total: S/ {{ card.totalPrice }}
       </p>
     </mat-card-content>
+    <mat-card-actions class="actions-container">
+      <!-- Usando [(ngModel)] correctamente para enlazar el valor de card.moviment -->
+      <input [(ngModel)]="card.moviment" type="hidden">
+
+      <!-- Cambiando a (click) en lugar de (onsubmit) para el evento del botón -->
+      <button mat-raised-button class="button-purple" (click)="onToggleEndRent(card.reservationId)">Finalizar Renta</button>
+    </mat-card-actions>
     <br />
   </mat-card>
 </div>

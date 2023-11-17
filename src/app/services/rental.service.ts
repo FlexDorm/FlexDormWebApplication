@@ -35,4 +35,45 @@ export class RentalService {
       .pipe(catchError(this.handleError));
   }
 
+  getMovimentByStudent(student: string): Observable<ApiResponse<RentalData[]>> {
+    return this.http
+      .get<ApiResponse<RentalData[]>>(`${this.baseUrl}/rental/getMovimentByStudentId/${student}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  getRentByArrender(arrenderId: string): Observable<ApiResponse<RentalData[]>> {
+    return this.http
+      .get<ApiResponse<RentalData[]>>(`${this.baseUrl}/rental/getRentalsByArrenderId/${arrenderId}`)
+      .pipe(catchError(this.handleError));
+  }
+  getMovimentByArrender(arrenderId: string): Observable<ApiResponse<RentalData[]>> {
+    return this.http
+      .get<ApiResponse<RentalData[]>>(`${this.baseUrl}/rental/getMovimentByArrenderId/${arrenderId}`)
+      .pipe(catchError(this.handleError));
+  }
+
+  toggleFavorite(reservationId: string): Observable<ApiResponse<RentalData[]>> {
+    const requestBody = {};
+    return this.http.put<ApiResponse<RentalData[]>>(
+      `${this.baseUrl}/rental/${reservationId}/toggleFavorite`,
+      requestBody).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  toggleEndRent(reservationId: string): Observable<ApiResponse<RentalData[]>> {
+    const requestBody = {};
+    return this.http.put<ApiResponse<RentalData[]>>(
+      `${this.baseUrl}/rental/${reservationId}/toggleEndRental`,
+      requestBody).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getRentByTrueStudent(student: string): Observable<ApiResponse<RentalData[]>> {
+    return this.http
+      .get<ApiResponse<RentalData[]>>(`${this.baseUrl}/rental/search/${student}`)
+      .pipe(catchError(this.handleError));
+  }
+
 }

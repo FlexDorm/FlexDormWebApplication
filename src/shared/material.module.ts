@@ -26,6 +26,7 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
   imports: [
@@ -41,6 +42,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatChipsModule,
     MatGridListModule,
     MatSidenavModule,
+    MatSlideToggleModule,
     MatListModule,
     MatMenuModule,
     MatDialogModule,
@@ -66,6 +68,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
+    MatSlideToggleModule,
     MatChipsModule,
     MatGridListModule,
     MatSidenavModule,

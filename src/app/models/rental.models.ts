@@ -1,5 +1,5 @@
 export interface RentalData {
-  id: string;
+  reservationId: string;
   arrender:string;
   student:string;
   room:string;
@@ -9,4 +9,6 @@ export interface RentalData {
   hourFinal:string;
   totalPrice:string;
   observation:string;
+  favorite:string;
+  moviment:string;
 }

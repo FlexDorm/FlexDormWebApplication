@@ -21,6 +21,7 @@ export class RoomDetailComponent  {
   roomData: RoomModel [] = [];
   finalPriceRoom: number | undefined = undefined;
   photoImage:string|undefined=undefined;
+  arrenderId:string|undefined=undefined;
   roomId: number | null = null;
   constructor(private route: ActivatedRoute, private roomsService: RoomsService, private rentalService:RentalService, private _snackBar:MatSnackBar ) {}
 
@@ -43,6 +44,7 @@ export class RoomDetailComponent  {
         this.roomData.forEach((room: RoomModel) => {
           this.finalPriceRoom = room.price;
           this.photoImage = room.imageUrl;
+          this.arrenderId=room.arrenderId;
         });
         console.log(this.finalPriceRoom);
       }
@@ -97,8 +99,11 @@ export class RoomDetailComponent  {
       const longStudent = studentId ? parseInt(studentId, 10) : 0;
       this.rentalData.student=longStudent,
       this.rentalData.room=this.roomId,
-      this.rentalData.finalPrice = (this.finalPriceRoom ?? 0) * resulthour;
+      this.rentalData.totalPrice = (this.finalPriceRoom ?? 0) * resulthour;
       this.rentalData.imageUrl=this.photoImage;
+      this.rentalData.arrender=this.arrenderId
+      this.rentalData.arrenderId=this.arrenderId
+      this.rentalData.moviment="false"
       this.rentalService.registerRental(rentalData).subscribe(
         (response) => {
           console.log('Alquiler registrado con éxito:', response);
