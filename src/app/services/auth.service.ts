@@ -34,7 +34,7 @@ export class AuthService {
             localStorage.setItem('userData', JSON.stringify(user));
             localStorage.setItem('userId',JSON.stringify(user.userId))
             localStorage.setItem('type',user.dtype)
-            localStorage.setItem('token', JSON.stringify(user.token))
+            localStorage.setItem('token', user.token)
             this.loggedIn = true;
             return true;
           } else {
