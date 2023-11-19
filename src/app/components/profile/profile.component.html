@@ -9,6 +9,24 @@
                 <form *ngIf="edit" class="content" (ngSubmit)="updateAccountData()">
                     <div class="item">
                         <mat-form-field>
+                            <mat-label>Name</mat-label>
+                            <input matInput [(ngModel)]="accountData.firstname" name="firstname">
+                        </mat-form-field>
+                    </div>
+                    <div class="item">
+                        <mat-form-field>
+                            <mat-label>Lastname</mat-label>
+                            <input matInput [(ngModel)]="accountData.lastname" name="lastname">
+                        </mat-form-field>
+                    </div>
+                    <div class="item">
+                        <mat-form-field>
+                            <mat-label>Photo URL</mat-label>
+                            <input matInput [(ngModel)]="accountData.profilePicture" name="profilePicture">
+                        </mat-form-field>
+                    </div>
+                    <div class="item">
+                        <mat-form-field>
                             <mat-label>Username</mat-label>
                             <input matInput [(ngModel)]="accountData.username" name="username">
                         </mat-form-field>

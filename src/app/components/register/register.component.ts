@@ -34,6 +34,9 @@ export class RegisterComponent {
       profilePicture: ['', Validators.required],
       username: ['', Validators.required],
     });
+
+    authService.logout();
+    
   }
   student = true;
   arrendar = false;

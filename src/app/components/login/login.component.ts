@@ -17,7 +17,9 @@ export class LoginComponent {
     private authService: AuthService,
     private router: Router,
     private _snackBar: MatSnackBar
-  ) {}
+  ) {
+    authService.logout();
+  }
 
   login(): void {
     this.authService.login(this.email, this.password).subscribe({

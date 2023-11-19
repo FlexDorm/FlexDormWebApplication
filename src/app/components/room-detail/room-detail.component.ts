@@ -32,7 +32,6 @@ export class RoomDetailComponent  {
     if (idParam !== null) {
       this.roomId = +idParam;
     }
-    console.log('ddddddddd');
     console.log(this.roomId);
     this.getRoomByID(this.roomId);
   }

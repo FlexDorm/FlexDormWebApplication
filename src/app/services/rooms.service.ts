@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Subject, throwError, catchError, tap } from 'rxjs';
 import { RoomData } from 'src/typings';
 import { RoomModel} from '../models/room.model';
@@ -11,7 +11,15 @@ import { ApiResponse } from '../models/api-response.model';
   providedIn: 'root',
 })
 export class RoomsService {
-  constructor(private http: HttpClient) {}
+  private userData;
+  private token;
+  private headers;
+
+  constructor(private http: HttpClient) {
+    this.userData = localStorage.getItem('userData');
+    this.token = this.userData ? JSON.parse(this.userData).token : null;
+    this.headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+  }
 
   /**
    * Metodo que se encarga de manejar los errores
@@ -32,26 +40,26 @@ export class RoomsService {
   /**
    * Obtiene la lista de habitaciones (GET)
    */
-  getRoomsList(roomId:number|null) {
+  getRoomsList(roomId: number | null) {
     return this.http
-      .get<ApiResponse<RoomModel[]>>(`${environment.baseURL}/room/getRoomsByRoomId/${roomId}`)
+      .get<ApiResponse<RoomModel[]>>(`${environment.baseURL}/room/getRoomsByRoomId/${roomId}`, { headers: this.headers })
       .pipe(catchError(this.handlerError));
   }
   getRoomsListFree() {
     return this.http
-      .get<ApiResponse<RoomModel[]>>(`${environment.baseURL}/room/getRoomsByStatusId/free`)
+      .get<ApiResponse<RoomModel[]>>(`${environment.baseURL}/room/getRoomsByStatusId/free`, { headers: this.headers })
       .pipe(catchError(this.handlerError));
   }
 
   getRoomsByArrender(arrender: string): Observable<ApiResponse<RoomModel[]>> {
     return this.http
-      .get<ApiResponse<RoomModel[]>>(`${environment.baseURL}/room/getRoomsByArrenderId/${arrender}`)
+      .get<ApiResponse<RoomModel[]>>(`${environment.baseURL}/room/getRoomsByArrenderId/${arrender}`, { headers: this.headers })
       .pipe(catchError(this.handleError));
   }
 
   getRoomsByArrenderRented(arrender: string): Observable<RoomData[]> {
     return this.http
-      .get<RoomData[]>(`${environment.baseURL}/rooms?arrender=${arrender}&status=rented`)
+      .get<RoomData[]>(`${environment.baseURL}/rooms?arrender=${arrender}&status=rented`, { headers: this.headers })
       .pipe(catchError(this.handleError));
   }
 
@@ -66,21 +74,21 @@ export class RoomsService {
    */
   registerRoom(roomData: RoomData) {
     console.log('nuevo room', roomData)
-    return this.http.post(`${environment.baseURL}/room/registerRoom`, roomData).pipe(
+    return this.http.post(`${environment.baseURL}/room/registerRoom`, roomData, { headers: this.headers }).pipe(
       catchError(this.handlerError),
       tap(() => this.onRoomCreated()) //recupera la lista actualizada de habitaciones
     );
   }
 
-  updateRoomStatus(roomId: number, status: string, student:string): Observable<any> {
+  updateRoomStatus(roomId: number, status: string, student: string): Observable<any> {
     const url = `${environment.baseURL}/rooms/${roomId}`;
-    const body = { status,student };
-    return this.http.patch(url, body);
+    const body = { status, student };
+    return this.http.patch(url, body, { headers: this.headers });
   }
 
   getRoomsByStudentRented(student: string): Observable<RoomData[]> {
     return this.http
-      .get<RoomData[]>(`${environment.baseURL}/rooms?student=${student}&status=rented`)
+      .get<RoomData[]>(`${environment.baseURL}/rooms?student=${student}&status=rented`, { headers: this.headers })
       .pipe(catchError(this.handleError));
   }
 }
