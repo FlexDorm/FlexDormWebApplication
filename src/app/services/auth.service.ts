@@ -12,7 +12,7 @@ import { ApiResponseStatus } from '../models/api-response.model';
 })
 export class AuthService {
   private loggedIn = false;
-
+  
 
   constructor(private http: HttpClient) {}
 
@@ -34,6 +34,8 @@ export class AuthService {
             localStorage.setItem('userData', JSON.stringify(user));
             localStorage.setItem('userId',JSON.stringify(user.userId))
             localStorage.setItem('type',user.dtype)
+            var token = localStorage.getItem('userData.token')
+            localStorage.setItem('token', JSON.stringify(token))
             this.loggedIn = true;
             return true;
           } else {

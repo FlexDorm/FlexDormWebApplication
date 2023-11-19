@@ -18,7 +18,7 @@ export class ProfileService {
 
   constructor(private http: HttpClient) {
     this.userData = localStorage.getItem('userData');
-    this.token = this.userData ? JSON.parse(this.userData).token : null;
+    this.token = localStorage.getItem('token');
     this.headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
   }
   
